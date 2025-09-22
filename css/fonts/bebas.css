@@ -1,0 +1,61 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { font-family: BebasNeueRegular; font-weight: normal!important; }
+
+h1 { 
+	font-size: 38px;
+	line-height: 34px;
+}
+
+h2 { 
+	font-size: 36px;
+	line-height: 32px;
+}
+
+h3 { 
+	font-size: 32px;
+	line-height: 28px;
+}
+
+h4 { 
+	font-size: 28px;
+	line-height: 25px;
+}
+
+h5 { 
+	font-size: 24px;
+	line-height: 21px;
+}
+
+h6 { 
+	font-size: 20px;
+	line-height: 18px;
+}
+
+#system .item > header .title time { font-weight: normal; }
+
+.module .module-title span.subtitle { font-size: 18px; font-weight: normal; margin-top: 4px; }
+
+.module .module-title .icon { top: -2px; }
+
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+.menu-dropline a.level1,
+.menu-dropline span.level1 { font-family: BebasNeueRegular; font-size: 24px; font-weight: normal; }
+
+.menu-dropline .level1 .level1 span.subtitle { font-family: Arial, Helvetica, sans-serif; margin-top: 2px; }
+
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@font-face {
+	font-family: 'BebasNeueRegular';
+	src: url('BebasNeue-webfont.eot?') format('eot'),
+		 url('BebasNeue-webfont.woff') format('woff'),
+		 url('BebasNeue-webfont.ttf') format('truetype'),
+		 url('BebasNeue-webfont.svg#webfontj1CI1MAi') format('svg');
+}

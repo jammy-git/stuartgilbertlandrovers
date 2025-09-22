@@ -1,0 +1,15 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Header: Red
+----------------------------------------------------------------------------------------------------*/
+
+#headerbar { background: url(../../images/header/red/headerbar.png) 0 0 repeat; }
+#headerbar > div {
+	background: url(../../images/header/red/headerbar_t.png) 0 0 repeat-x;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+#headerbar > div > div { background: url(../../images/header/headerbar_b.png) 0 100% repeat-x; }
+
+#headerbar a:hover { color: #FFCAB0; }

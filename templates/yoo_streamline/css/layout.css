@@ -1,0 +1,95 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import url(../warp/css/layout.css);
+
+
+/* Spacing
+----------------------------------------------------------------------------------------------------*/
+
+#breadcrumbs { 
+	padding: 7px 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#content { padding: 20px; }
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+
+.wrapper { background: url(../images/wrapper.png) 0 0 repeat; }
+
+#toolbar {
+	padding: 10px 20px;
+	background: url(../images/toolbar.png) 0 100% repeat-x;
+	color: #777;
+	line-height: 25px;
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#headerbar > div > div { padding: 40px 20px; }
+
+#headerbar .module { max-width: 620px; }
+
+#menubar {
+	position: relative;
+	height: 129px;
+	margin-bottom: 12px;
+}
+#headerbar + #menubar { margin-top: -6px; }
+
+#top-a,
+#top-b,
+#bottom-a,
+#bottom-b { padding-bottom: 12px; }
+
+#top-a,
+#top-b { background: url(../images/top_b.png) 0 100% repeat-x; }
+
+#top-a > div,
+#top-b > div { background: url(../images/top.png) 0 0 repeat; }
+
+#main { padding-top: 5px; }
+#main > div { padding-bottom: 17px; }
+#main > div > div { background: url(../images/main.png) 0 0 repeat; }
+
+#innertop { border-bottom: 1px solid #d3d3d3; }
+
+#innerbottom { border-top: 1px solid #d3d3d3; }
+
+#bottom-a,
+#bottom-b { background: url(../images/bottom_b.png) 0 100% repeat-x; }
+
+#bottom-a > div { background: url(../images/bottom-a.png) 0 0 repeat; }
+#bottom-a > div > div { background: url(../images/bottom-a_t.png) 0 0 repeat-x; }
+
+#bottom-b > div { background: url(../images/bottom-b.png) 0 0 repeat; }
+#bottom-b > div > div { background: url(../images/bottom-b_t.png) 0 0 repeat-x; }
+
+#sidebar-a,
+#sidebar-b { background: rgba(0,0,0,0.04) url(../images/border.png) 0 0 repeat-y; }
+#sidebar-b { background-color: rgba(0,0,0,0.08); }
+
+.sidebar-a-left #sidebar-a,
+.sidebar-b-left #sidebar-b { background-position: 100% 0; }
+
+#footer {
+	padding: 0 20px 20px 20px;
+	color: #555;
+	font-size: 12px;
+	text-align: left;
+}
+
+#totop-scroller {
+	display: block;
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	z-index: 1;
+	width: 24px;
+	height: 24px;
+	background: url(../images/totop_scroller.png) 0 0 no-repeat;
+	text-decoration: none;
+}
+#totop-scroller:hover { background-position: 0 -40px; }

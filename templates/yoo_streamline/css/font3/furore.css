@@ -1,0 +1,6 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+.menu-dropline a.level1,
+.menu-dropline span.level1 { font-family: "FuroreRegular"; }
+
+.menu-dropline .level1 .level1 span.subtitle { font-family: Arial, Helvetica, sans-serif; margin-top: 0; }

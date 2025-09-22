@@ -1,0 +1,18 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Skyline
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #90c8e3 url(../../images/background/skyline/page.jpg) 50% 50% fixed; }
+
+#page-bg { background: url(../../images/background/skyline/raster.png) 0 0 fixed; }
+
+@media only screen and (min-device-width: 769px) {
+		
+	.wrapper {
+		-moz-box-shadow: 0 0 15px rgba(0,0,0,0.7);
+		-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.7);
+		box-shadow: 0 0 15px rgba(0,0,0,0.7);
+	}
+
+}

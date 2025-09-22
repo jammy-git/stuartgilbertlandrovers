@@ -1,0 +1,199 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import url(../warp/css/modules.css);
+
+/* Module Base
+----------------------------------------------------------------------------------------------------*/
+
+.module h3.module-title {
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.module .module-title span.subtitle { font-size: 16px; }
+
+.grid-h .mod-line { border-color: rgba(0,0,0,0.1); }
+
+.grid-h .mod-box,
+.grid-h .mod-black,
+.grid-h .mod-color,
+.grid-h .mod-line {
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+
+.grid-v .mod-box,
+.grid-v .mod-black,
+.grid-v .mod-color,
+.grid-v .mod-line { 
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.grid-h:first-child .mod-box,
+.grid-h:first-child .mod-black,
+.grid-h:first-child .mod-color { border-left: none; }
+
+.grid-v:first-child .mod-box,
+.grid-v:first-child .mod-black,
+.grid-v:first-child .mod-color { border-top: none; }
+
+#bottom-a .mod-box h3.module-title,
+#bottom-b .mod-box h3.module-title,
+#bottom-a .mod-line h3.module-title,
+#bottom-b .mod-line h3.module-title { color: #ccc; }
+
+#bottom-a .mod-box,
+#bottom-b .mod-box,
+#bottom-a .mod-line,
+#bottom-b .mod-line {
+	color: #888;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+.mod-black hr,
+.mod-color hr { border-top-color: rgba(255,255,255,0.1); }
+
+
+/* Module Badges
+----------------------------------------------------------------------------------------------------*/
+
+.module .badge {
+	width: 43px;
+	height: 44px;
+	background: url(../images/module_badges.png) 0 0 no-repeat;
+}
+
+.mod-black .badge,
+#bottom-a .mod-box .badge,
+#bottom-a .mod-line .badge,
+#bottom-b .mod-box .badge,
+#bottom-b .mod-line .badge { background-image: url(../images/module_badges_black.png); }
+
+#bottom-a .grid-h .badge,
+#bottom-b .grid-h .badge,
+#bottom-a .grid-v .mod-line .badge,
+#bottom-b .grid-v .mod-line .badge,
+#bottom-a .grid-v:first-child .mod-box .badge,
+#bottom-b .grid-v:first-child .mod-box .badge { top: 1px; }
+
+.grid-v .mod-box .badge,
+.grid-v .mod-line .badge { top: -1px; }
+
+.grid-v:first-child .mod-box .badge,
+.grid-v:first-child .mod-line .badge,
+#bottom-a .grid-v .mod-box .badge,
+#bottom-b .grid-v .mod-box .badge   { top: 0; }
+ 
+.module .badge-hot { background-position: 0 0; }
+.module .badge-top { background-position: 0 -50px; }
+.module .badge-free { background-position: 0 -100px; }
+.module .badge-new { background-position: 0 -150px; }
+
+
+/* Module Icons
+----------------------------------------------------------------------------------------------------*/
+
+.module .module-title .icon { background: url(../images/module_icons.png) 0 0 no-repeat; }
+
+.module .module-title .icon-download { background-position: 0 0; }
+.module .module-title .icon-twitter { background-position: 0 -30px; }
+.module .module-title .icon-mail { background-position: 0 -60px; }
+.module .module-title .icon-bubble { background-position: 0 -90px; }
+.module .module-title .icon-login { background-position: 0 -120px; }
+.module .module-title .icon-cart { background-position: 0 -150px; }
+
+
+/* Module Type: Box
+----------------------------------------------------------------------------------------------------*/
+
+.mod-box {
+	padding: 20px;
+	border-color: rgba(0,0,0,0.1);
+	background: url(../images/mod_box.png) 0 0 repeat;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+/* Color Dark */
+.mod-box-dark { background: url(../images/mod_box_dark.png) 0 0 repeat; }
+
+#bottom-a .mod-box,
+#bottom-b .mod-box {
+	border-color: rgba(0,0,0,0.3);
+	background: url(../images/mod_box_bottom.png) 0 0 repeat;
+}
+
+.mod-box h3.module-title { color: #222; }
+
+
+/* Module Type: Black
+----------------------------------------------------------------------------------------------------*/
+
+.mod-black {
+	padding: 20px;
+	border-color: rgba(0,0,0,0.5);
+	background:
+		url(../images/mod_black_t.png) 0 0 repeat-x,
+		url(../images/mod_black.png) 0 0 repeat;
+	color: #aaa;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+.mod-black h3.module-title,
+.mod-black strong,
+.mod-black em,
+.mod-black code,
+.mod-black a:hover { color: #ddd; }
+
+/* Module Type: Color
+----------------------------------------------------------------------------------------------------*/
+
+.mod-color { padding: 20px; }
+
+.mod-color h3.module-title,
+.mod-color strong,
+.mod-color em,
+.mod-color code { color: #f4f4f4; }
+
+.mod-color a { color: #fff; }
+
+.module.mod-color h3.module-title .color { color: #fff; }
+
+
+
+/* Module Type: Line
+----------------------------------------------------------------------------------------------------*/
+
+.mod-line {	
+	padding: 20px;
+	border-color: rgba(0,0,0,0.1);
+}
+
+#bottom-a .mod-line {
+	border-left: none;
+	background: url(../images/mod_line_bottom-a.png) 0 0 repeat-y;
+}
+#bottom-b .mod-line {
+	border-left: none;
+	background: url(../images/mod_line_bottom-b.png) 0 0 repeat-y;
+}
+
+#page .grid-h:first-child .mod-line {
+	background: none;
+	border-left: none;
+}
+
+#bottom-a .grid-v .mod-line {
+	border-top: none;
+	background: url(../images/mod_line_v_bottom-a.png) 0 0 repeat-x;
+}
+
+#bottom-b .grid-v .mod-line {
+	border-top: none;
+	background: url(../images/mod_line_v_bottom-b.png) 0 0 repeat-x;
+}
+
+#page .grid-v:first-child .mod-line {
+	border-top: none;
+	background: none;
+}

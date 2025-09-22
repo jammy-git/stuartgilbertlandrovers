@@ -1,0 +1,380 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import url(../warp/css/menus.css);
+
+
+/* Mega Drop-Line Menu
+----------------------------------------------------------------------------------------------------*/
+
+/*
+ * Warp Framework
+ */
+
+/* Level 1 */
+.menu-dropline,
+.menu-dropline .level1,
+.menu-dropline .level1 > span { float: left; }
+
+.menu-dropline a.level1 > span,
+.menu-dropline span.level1 > span {
+	height: 35px;
+	padding: 0 10px;
+	line-height: 35px;
+}
+
+/* Level 2 */
+.menu-dropline ul.level2 { display: none; }
+.menu-dropline li.level1:hover ul.level2, .menu-dropline li.level1 ul.level2.remain { display: block; }
+
+.menu-dropline .level2,
+.menu-dropline .level2 > span { float: left; }
+
+.menu-dropline li.level2 { position: relative; }
+
+.menu-dropline a.level2 > span,
+.menu-dropline span.level2 > span {
+	padding: 7px 0;
+	line-height: 21px;
+	overflow: hidden;
+}
+
+/* Drop-Down */
+.menu-dropline .dropdown {
+	display: none;
+	position: absolute;
+	top: 35px;
+ 	left: 0;
+	z-index: 100;
+	width: 300px; /* Default */
+}
+
+.menu-dropline .level1 li:hover .dropdown,
+.menu-dropline li.remain .dropdown { display: block; }
+
+.menu-dropline .dropdown-bg > div { overflow: hidden; }
+
+/* Multi Columns, Default */
+.menu-dropline .columns2 { width: 600px; }
+.menu-dropline .columns3 { width: 900px; }
+.menu-dropline .columns4 { width: 1200px; }
+
+.menu-dropline .column { float: left; }
+
+/* Level 3 */
+.menu-dropline a.level3 > span,
+.menu-dropline span.level3 > span { line-height: 22px; }
+
+/* Icons */
+.menu-dropline span.icon {
+	display: block;
+	width: 35px;
+	height: 35px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	float: left;
+}
+
+.menu-dropline span.icon + span,
+.menu-dropline span.icon + span + span { margin-left: 35px; }
+
+.menu-dropline li.level2 .level2 span.icon {
+	margin-top: -7px;
+	margin-bottom: -7px;
+}
+.menu-dropline li.level2.hassubtitle .level2 span.icon { margin-top: -4px; }
+
+/* Subtitles */
+.menu-dropline span.title { line-height: 21px; }
+
+.menu-dropline span.subtitle {
+	margin-top: -1px;
+	font-size: 9px;
+	line-height: 10px;
+	text-indent: 1px;
+}
+
+/*
+ * Theme
+ */
+
+/* Level 1 */
+.menu-dropline li.level1 { background: url(../images/menu_dropline_level1.png) 0 0 repeat-y; }
+
+.menu-dropline .level1:first-child { background: none; }
+
+.menu-dropline a.level1,
+.menu-dropline span.level1 {
+	padding: 26px 10px 0 10px;
+	height:  50px;
+	color: #878787;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.menu-dropline a.level1.active,
+.menu-dropline span.level1.active { 
+	background-size: 100% 12px;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+}
+
+.menu-dropline a.level1 > span,
+.menu-dropline span.level1 > span { line-height: 30px; }
+
+/* Set Active */
+.menu-dropline li.active .level1 { color: #333; }
+
+/* Fancy */
+#menubar div.fancy {
+	position: absolute;
+	top: 65px;
+	z-index: 2;
+	overflow: hidden;
+}
+
+#menubar div.fancy div.fancy-3 {
+	height: 7px;
+	width: 13px;
+	margin: 0 auto;
+	background: url(../images/menu_dropline_fancy.png) 0 0 no-repeat;
+}
+
+/* Level 2 */
+.menu-dropline ul.level2 {
+	position: absolute;
+	left: 10px;
+	right: 0;
+	top: 76px;
+}
+
+.menu-dropline a.level2 > span,
+.menu-dropline span.level2 > span {
+	margin-top: 9px;
+	padding: 5px 10px;
+	color: #999;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* Set Hover */
+.menu-dropline li.level2:hover a.level2 > span,
+.menu-dropline li.level2:hover span.level2 > span {
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: rgba(0,0,0,0.3);
+	-moz-box-shadow:
+		inset 0 1px 0 rgba(0,0,0,0.3),
+		0 1px 0 rgba(255,255,255,0.07);
+	-webkit-box-shadow:
+		inset 0 1px 0 rgba(0,0,0,0.3),
+		0 1px 0 rgba(255,255,255,0.07);		
+	box-shadow:
+		inset 0 1px 0 rgba(0,0,0,0.3),
+		0 1px 0 rgba(255,255,255,0.07);
+	color: #ddd;
+}
+
+.menu-dropline li.level2:hover a.level2.parent > span,
+.menu-dropline li.level2:hover span.level2.parent > span,
+.menu-dropline .dropdown-bg > div { background: url(../images/menu_dropline_dropdown.png) repeat 0 0; }
+
+.menu-dropline li.level2:hover a.level2.parent > span,
+.menu-dropline li.level2:hover span.level2.parent > span {
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+	-moz-box-shadow:
+		0 1px 0 rgba(255,255,255,0.07);
+	-webkit-box-shadow:
+		0 1px 0 rgba(255,255,255,0.07);		
+	box-shadow:
+		0 1px 0 rgba(255,255,255,0.07);
+}
+
+/* Set Active */
+.menu-dropline a.level2.active > span,
+.menu-dropline span.level2.active > span { text-shadow: 0 -1px 0 rgba(0,0,0,0.8); }
+
+/* Set Current */
+.menu-dropline .level1.current > span { font-weight: normal; }
+.menu-dropline .current > span { font-weight: bold; }
+
+/* Drop-Down */
+.menu-dropline .dropdown { top: 40px; }
+
+.menu-dropline .dropdown-bg > div {
+	-moz-border-radius: 0 3px 3px 3px;
+	border-radius: 0 3px 3px 3px;
+	padding: 5px 10px;
+	text-shadow: 0 -1px 0 #000;
+}
+
+/* Level 3 */
+.menu-dropline a.level3 > span,
+.menu-dropline span.level3 > span {
+	font-size: 12px;
+	color: #999;
+}
+
+.menu-dropline a.level3.active > span,
+.menu-dropline span.level3.active > span { color: #ddd; }
+
+/* Icons */
+.menu-dropline .level1 .level1 span.icon {
+	width: 30px;
+	height: 30px;
+	margin-left: -5px;
+}
+.menu-dropline .level1 .level1 span.icon + span,
+.menu-dropline .level1 .level1 span.icon + span + span { margin-left: 25px; }
+
+.menu-dropline li.level2 .level2 span.icon {
+	margin-left: -5px;
+	margin-right: 4px;
+}
+
+.menu-dropline li.level2 .level2 span.icon + span,
+.menu-dropline li.level2 .level2 span.icon + span + span { margin-left: 34px; }
+
+/* Subtitles */
+.menu-dropline .level1 .level1 span.title { line-height: 18px; }
+.menu-dropline .level1 .level1 span.subtitle { margin-top: -1px; }
+
+.menu-dropline li.level2.hassubtitle > .level2 > span { 
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+.menu-dropline .level2 > span > span.title { line-height: 18px; }
+.menu-dropline .level2 > span > span.subtitle { margin-top: -2px; }
+
+
+/* Sidebar/Accordion Menu
+----------------------------------------------------------------------------------------------------*/
+
+.menu-sidebar { margin: 0 -20px; }
+
+/* Link */
+.menu-sidebar a,
+.menu-sidebar li > span {
+	color: #999;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Current */
+.menu-sidebar a.current {
+	color: #333;
+	font-weight: bold;
+}
+
+/* Level 1 */
+.menu-sidebar a.level1,
+.menu-sidebar span.level1 {
+	padding: 5px 20px;
+	background: url(../images/menu_sidebar_level1.png) 0 0 repeat-x;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.menu-sidebar a.level1:hover,
+.menu-sidebar span.level1:hover { background-position: 0 -90px; }
+
+.menu-sidebar li.level1:last-child {
+	padding-bottom: 3px;
+	background: url(../images/menu_sidebar_ul_level2.png) 0 100% repeat-x
+}
+.menu-sidebar li.level1.parent.active { background: none; }
+
+.menu-sidebar li.parent .level1 > span { background: url(../images/menu_sidebar_level1_parent.png) 100% 0 no-repeat; }
+.menu-sidebar li.parent.active .level1 > span { background-position: 100% -100px; }
+
+/* Level 2-4 */
+.menu-sidebar ul.level2 {
+	padding: 10px 10px 10px 20px;
+	background: url(../images/menu_sidebar_ul_level2.png) 0 0 repeat-x;
+}
+
+.menu-sidebar .level2 a > span {
+	line-height: 20px;
+	font-size: 12px;
+}
+
+.menu-sidebar .level2 a,
+.menu-sidebar .level2 li > span {
+	padding-right: 25px;
+	background: url(../images/menu_sidebar_level2.png) 100% 0 no-repeat;
+	
+}
+
+.menu-sidebar ul.level2 a:hover,
+.menu-sidebar ul.level2 li > span:hover { background-position: 100% -80px; }
+
+.menu-sidebar ul.level2 a.current,
+.menu-sidebar ul.level2 li > span.current { background-position: 100% -160px; }
+
+/* Level 3-4 */
+.menu-sidebar ul.level2 ul { padding-left: 10px; }
+
+/* Icons */
+.menu-sidebar span.icon { margin-right: 4px; }
+
+/* Module Black + Module Color */
+/* Link */
+.mod-black .menu-sidebar a,
+.mod-color .menu-sidebar a,
+.mod-black .menu-sidebar li > span,
+.mod-color .menu-sidebar li > span {
+	color: #ccc;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* Hover */
+#page .mod-black .menu-sidebar a:hover,
+#page .mod-color .menu-sidebar a:hover,
+#page .mod-black .menu-sidebar li > span:hover,
+#page .mod-color .menu-sidebar li > span:hover {
+	color: #000;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.1);
+	text-decoration: none;
+}
+
+/* Current */
+.mod-black .menu-sidebar a.current,
+.mod-color .menu-sidebar a.current {
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* Level 1 */
+.mod-black .menu-sidebar a.level1,
+.mod-color .menu-sidebar a.level1,
+.mod-black .menu-sidebar span.level1,
+.mod-color .menu-sidebar span.level1 { background-image: url(../images/menu_sidebar_level1_black.png); }
+.mod-black .menu-sidebar li.parent .level1 > span,
+.mod-color .menu-sidebar li.parent .level1 > span { background-image: url(../images/menu_sidebar_level1_parent_black.png); }
+
+/* Level 2-4 */
+.mod-black .menu-sidebar .level2 a,
+.mod-color .menu-sidebar .level2 a,
+.mod-black .menu-sidebar .level2 li > span,
+.mod-color .menu-sidebar .level2 li > span { background-image: url(../images/menu_sidebar_level2_black.png); }
+
+
+/* Line Menu
+----------------------------------------------------------------------------------------------------*/
+
+.menu-line li {
+	margin-left: 7px;
+	padding-left: 8px;
+}
+.menu-line li:first-child {
+	margin-left: 0;
+	padding-left: 0;
+}
+.menu-line li a { padding-left: 16px; }
+.menu-line li a:hover { background-position: 0 -90px; }
+
+#toolbar .menu-line li a { background-position: 0 4px; }
+#toolbar .menu-line li a:hover { background-position: 0 -86px; }
+

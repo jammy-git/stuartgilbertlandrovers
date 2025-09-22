@@ -1,0 +1,34 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Header: Black
+----------------------------------------------------------------------------------------------------*/
+
+#headerbar { background: url(../../images/header/black/headerbar.png) 0 0 repeat; }
+#headerbar > div {
+	background: url(../../images/header/black/headerbar_t.png) 0 0 repeat-x;
+	color: #666;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+/* WidgetKit */
+#headerbar .module .wk-twitter .image{
+	border-color: #0f0f0f;
+	background-color: #1f1f1f;
+}
+#headerbar .wk-twitter-list article {
+	border: none;
+	background: url(../../images/tools/list_line_black.png) 0 0 repeat-x;
+}
+#headerbar .wk-twitter-list article:first-child {
+	border: none;
+	background: none;
+}
+#headerbar .wk-twitter-bubbles .content {
+	border-color: #343434;
+	background: #111;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+#headerbar .wk-twitter-bubbles .content:after { background-image: url(../../images/widgetkit/arrow_black.png); }
+#headerbar .wk-twitter-single.image { background-image: url(../../images/widgetkit/bird_black.png); }

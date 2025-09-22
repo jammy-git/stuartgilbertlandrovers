@@ -1,0 +1,22 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Fabric Black
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #242424 url(../../images/background/black/page.png) 0 0 repeat; }
+
+@media only screen and (min-device-width: 769px) {
+
+	.wrapper {
+		-moz-box-shadow:
+			0 0 5px rgba(0,0,0,0.8),
+			0 0 100px rgba(255,255,255,0.3);
+		-webkit-box-shadow:
+			0 0 5px rgba(0,0,0,0.8),
+			0 0 200px rgba(255,255,255,0.3);
+		box-shadow:
+			0 0 5px rgba(0,0,0,0.8),
+			0 0 100px rgba(255,255,255,0.3);
+	}
+	
+}

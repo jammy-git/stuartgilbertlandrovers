@@ -1,0 +1,29 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Glitter Blue
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #184c6d; }
+
+#page-bg { background: url(../../images/background/glitter_blue/page.png) 50% 0 repeat-y; }
+
+@media only screen and (min-device-width: 769px) {
+
+	body#page { 
+		background: #184c6d url(../../images/background/glitter_blue/gradient.svg) 50% 0 no-repeat fixed;
+		background-size: 100% 1500px;
+	}
+	
+	.wrapper {
+		-moz-box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 100px rgba(125,180,215,0.6);
+		-webkit-box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 100px rgba(125,180,215,0.6);
+		box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 100px rgba(125,180,215,0.6);
+	}
+	
+}

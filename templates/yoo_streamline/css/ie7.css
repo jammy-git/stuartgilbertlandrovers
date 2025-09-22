@@ -1,0 +1,69 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import url(../warp/css/ie7.css);
+
+/* Base
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Menus
+----------------------------------------------------------------------------------------------------*/
+
+/* Mega Drop-Line Menu */
+.menu-dropline a > span { cursor: pointer; }
+
+.menu-dropline li.level1:hover,
+.menu-dropline .dropdown-bg,
+.menu-dropline li.level3 .level3 { zoom: 1; }
+
+/* Sidebar/Accordion Menu */
+.menu-sidebar { zoom: 1; }
+
+
+/* Modules
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Tools
+----------------------------------------------------------------------------------------------------*/
+
+#page a.button-more {
+	height: 22px;
+	margin: 0;
+	padding: 3px 15px;
+	background: url(../images/button_more_ie.png) 0 0 repeat;
+	line-height: 22px;
+	color: #fff;
+}
+
+#page a.button-more:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+
+/* System
+----------------------------------------------------------------------------------------------------*/
+
+/* Item */
+#system .item > header time .month { line-height: 15px; }
+#system .item > header time .day { line-height: 17px; }
+
+/* Pagination */
+#system .pagination { margin-left: 50px; }
+
+/* Breadcrumbs */
+.breadcrumbs *:first-child {
+	margin-left: -23px;
+	text-indent: 23px;
+	overflow: hidden;
+}
+
+
+/* Style
+----------------------------------------------------------------------------------------------------*/
+

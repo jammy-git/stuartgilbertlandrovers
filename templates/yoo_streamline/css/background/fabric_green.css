@@ -1,0 +1,21 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Fabric Green
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #656a4d url(../../images/background/fabric_green/page.jpg) 0 0 repeat; }
+
+@media only screen and (min-device-width: 769px) {
+
+	#page-bg {
+		background: url(../../images/background/fabric_green/gradient.svg) 50% 0 repeat-y fixed;
+		background-size: 100% 1500px;
+	}
+	
+	.wrapper {
+		-moz-box-shadow: 0 0 25px rgba(0,0,0,1);
+		-webkit-box-shadow: 0 0 25px rgba(0,0,0,1);
+		box-shadow: 0 0 25px rgba(0,0,0,1);
+	}
+	
+}

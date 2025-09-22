@@ -1,0 +1,116 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+
+/* Base
+----------------------------------------------------------------------------------------------------*/
+
+#toolbar a:hover,
+#headerbar a,
+#bottom-a a,
+#bottom-b a,
+#footer a:hover,
+.menu-dropline a.level2.active > span,
+.menu-dropline span.level2.active > span,
+.menu-dropline a.level3:hover > span,
+.menu-dropline span.level3:hover > span,
+#searchbox .results li.more-results:hover,
+.mod-black a,
+.module.mod-black h3.module-title .color,
+#bottom-a .mod-box h3.module-title .color,
+#bottom-a .mod-line h3.module-title .color,
+#bottom-b .mod-box h3.module-title .color,
+#bottom-b .mod-line h3.module-title .color { color: #ff9e05; }
+
+a,
+code,
+h2,
+h4,
+h6,
+.menu-dropline li.level1:hover .level1,
+.menu-dropline li.remain .level1,
+.mod-box .menu-sidebar a:hover,
+.mod-line .menu-sidebar a:hover,
+.mod-box .menu-sidebar li > span:hover,
+.mod-line .menu-sidebar li > span:hover,
+a.button-more:hover,
+.module h3.module-title .color { color: #ea9500; }
+
+.mod-color a:hover,
+.mod-color .menu-sidebar a,
+.mod-color .menu-sidebar li > span,
+.mod-color a.button-more,
+.box-color {
+	color: #ffdf7e;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+
+/* Logo */
+#logo .custom-logo { background: url(../../../../images/yootheme/logo_orange.png) 0 0 no-repeat; }
+
+#menubar { background: url(../../images/color/orange/menubar.png) 0 0 repeat-x; }
+
+#main {
+	background: url(../../images/color/orange/main_t.png) 0 0 repeat-x;
+	background:
+		url(../../images/color/orange/main_t_fx.png) 50% 0 no-repeat,
+		url(../../images/color/orange/main_t.png) 0 0 repeat-x;
+}
+#main > div {
+	background: url(../../images/color/orange/main_b.png) 0 100% repeat-x;
+	background:
+		url(../../images/color/orange/main_b_fx.png) 50% 100% no-repeat,
+		url(../../images/color/orange/main_b.png) 0 100% repeat-x;
+}
+
+/* Menus
+----------------------------------------------------------------------------------------------------*/
+
+.menu-dropline a.level1.active,
+.menu-dropline span.level1.active { background-image: url(../../images/color/orange/menu_dropline_level1_current.png); }
+
+.menu-line li a { background: url(../../images/color/orange/menu_line.png) 0 0 no-repeat; }
+
+
+/* Modules
+----------------------------------------------------------------------------------------------------*/
+
+.mod-color .badge { background-image: url(../../images/color/orange/module_badges_color.png); }
+
+/* Module Type: Color */
+.mod-color {
+	border-color: #a85300;
+	background: url(../../images/color/orange/mod_color.png) 0 0 repeat;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+	color: #ffdf7e;
+}
+
+
+/* Tools
+----------------------------------------------------------------------------------------------------*/
+
+/* Boxes */
+.box-color {
+	background: #ea9500;
+	border-color: #a85300;
+	-moz-box-shadow: 
+		0 2px 4px rgba(0,0,0,0.3),
+		inset 0 0 10px rgba(0,0,0,0.2);
+	-webkit-box-shadow:
+		0 2px 4px rgba(0,0,0,0.3),
+		inset 0 0 10px rgba(0,0,0,0.2);
+	box-shadow:
+		0 2px 4px rgba(0,0,0,0.3),
+		inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+
+/* WidgetKit
+----------------------------------------------------------------------------------------------------*/
+
+/* Slideshow */
+.wk-slideshow-streamline .nav span { background: url(../../images/color/orange/widgetkit/nav.png) 0 0 no-repeat; }
+

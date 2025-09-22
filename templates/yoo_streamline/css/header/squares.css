@@ -1,0 +1,17 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Header: Squares
+----------------------------------------------------------------------------------------------------*/
+
+#headerbar { background: url(../../images/header/squares/headerbar.png) 0 0 repeat; }
+#headerbar > div {
+	background: url(../../images/header/squares/headerbar_t.png) 0 0 repeat-x;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+#headerbar > div > div { background: url(../../images/header/squares/headerbar_special.png) 100% 0 no-repeat; }
+
+#headerbar a:hover { color: #111; }
+
+/* Logo Overwrite */
+#page #logo .custom-logo { background: url(../../../../images/yootheme/logo_black.png) 0 0 no-repeat; }

@@ -1,0 +1,75 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Custom Style Sheet - Use this file to style your content
+ */
+
+#logo .custom-logo {
+	width: 210px;
+	height: 60px;
+}
+
+/* Widgetkit Frontpage Slideset */
+
+.wk-slideset-streamline li > article { width: 240px; }
+.wk-slideset-streamline li > article h5 { margin-top: 0; }
+.wk-slideset-streamline article + strong.title { font-weight: normal; }
+
+
+
+body {
+	font: normal 16px/18px Arial, Helvetica, sans-serif
+}
+
+#toolbar #phone-number {
+	color: #75A003;
+}
+
+#toolbar #phone-number:hover {
+	color: yellow;
+}
+
+#menubar {
+	height: 70px;
+}
+
+#headerbar a:hover { color: yellow; }
+
+#headerbar > div > div { 
+	background: url(../images/landrover-headerbg.png) no-repeat 100% 100%;
+	padding: 30px 20px; 
+}
+
+#headerbar:first-child {
+}
+
+
+/* Contact page */
+.address {
+	float: left;
+	width: 25%;
+}
+
+.address ul {
+	text-align: right;
+}
+
+.map {
+	float: right;
+	margin: 20px 0;
+	width: 70%;
+}
+
+.contact {
+	clear: both;
+}
+
+#system form.submission fieldset > div > label:first-child {
+	padding-right: 15px;
+	text-align: right;
+	width: 30%;
+}
+
+#system form.submission fieldset > div > input[type="text"], #system form.submission fieldset > div > input[type="password"], #system form.submission fieldset > div > textarea {
+	width: 60%;
+}

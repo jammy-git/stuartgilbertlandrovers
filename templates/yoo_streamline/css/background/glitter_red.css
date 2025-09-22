@@ -1,0 +1,29 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Glitter Red
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #8d2b2b; }
+
+#page-bg { background: url(../../images/background/glitter_red/page.png) 50% 0 repeat-y; }
+
+@media only screen and (min-device-width: 769px) {
+
+	body#page { 
+		background: #8d2b2b url(../../images/background/glitter_red/gradient.svg) 50% 0 no-repeat fixed;
+		background-size: 100% 1500px;
+	}
+
+	.wrapper {
+		-moz-box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 100px rgba(255,150,100,0.6);
+		-webkit-box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 200px rgba(255,150,100,0.6);
+		box-shadow:
+			0 0 5px rgba(0,0,0,0.4),
+			0 0 100px rgba(255,150,100,0.6);
+	}
+
+}

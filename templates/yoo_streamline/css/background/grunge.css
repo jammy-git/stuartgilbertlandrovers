@@ -1,0 +1,18 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Background: Grunge
+----------------------------------------------------------------------------------------------------*/
+
+body#page { background: #3b3b3b url(../../images/background/grunge/page_bg.jpg) 50% 0 repeat; }
+
+#page-bg { background: url(../../images/background/grunge/page.jpg) 50% 0 no-repeat; }
+
+@media only screen and (min-device-width: 769px) {
+
+	.wrapper {
+		-moz-box-shadow: 0 0 15px rgba(0,0,0,1);
+		-webkit-box-shadow: 0 0 15px rgba(0,0,0,1);
+		box-shadow: 0 0 15px rgba(0,0,0,1);
+	}
+	
+}

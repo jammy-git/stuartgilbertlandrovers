@@ -1,0 +1,202 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/* Base
+----------------------------------------------------------------------------------------------------*/
+
+a:hover {
+	-webkit-transition: color 0.25s ease-in-out;
+	-moz-transition: color 0.25s ease-in-out;
+	-o-transition: color 0.25s ease-in-out;
+	-ms-transition: color 0.25s ease-in-out;
+	transition: color 0.25s ease-in-out;
+}
+
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+
+/* Footer */
+#totop-scroller {
+	opacity: 1.0;
+	-webkit-transition: opacity 0.4s ease-out;
+	-moz-transition: opacity 0.4s ease-out;
+	-o-transition: opacity 0.4s ease-out;
+	-ms-transition: opacity 0.4s ease-out;
+	transition: opacity 0.4s ease-out;
+}
+
+#totop-scroller:hover { opacity: 0.5; }
+
+
+/* Menus
+----------------------------------------------------------------------------------------------------*/
+
+/* Mega Drop-Down Menu */
+
+/* Level 1 */
+.menu-dropline a.level1,
+.menu-dropline span.level1 {
+	-webkit-transition: color 0.4s ease-in-out;
+	-moz-transition: color 0.4s ease-in-out;
+	-o-transition: color 0.4s ease-in-out;
+	-ms-transition: color 0.4s ease-in-out;
+	transition: color 0.4s ease-in-out;
+}
+
+.menu-dropline a.level2:hover > span,
+.menu-dropline span.level2:hover > span {
+	-webkit-transition: color 0.35s ease-in-out;
+	-moz-transition: color 0.35s ease-in-out;
+	-o-transition: color 0.35s ease-in-out;
+	-ms-transition: color 0.35s ease-in-out;
+	transition: color 0.35s ease-in-out;
+}
+
+.menu-dropline a.level3:hover > span,
+.menu-dropline span.level3:hover > span {
+	-webkit-transition: color 0.15s ease-in-out;
+	-moz-transition: color 0.15s ease-in-out;
+	-o-transition: color 0.15s ease-in-out;
+	-ms-transition: color 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out;
+}
+
+/* Menu Sidebar */
+.menu-sidebar a,
+.menu-sidebar li > span {
+	-webkit-transition: color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out;
+	-o-transition: color 0.2s ease-in-out;
+	-ms-transition: color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out;
+}
+
+
+/* Tools
+----------------------------------------------------------------------------------------------------*/
+
+a.button-more:hover {
+	-webkit-transition: color 0.25s ease-in-out;
+	-moz-transition: color 0.25s ease-in-out;
+	-o-transition: color 0.25s ease-in-out;
+	-ms-transition: color 0.25s ease-in-out;
+	transition: color 0.25s ease-in-out;
+}
+
+form.box input[type="text"],
+form.short input[type="text"],
+form.box input[type="password"],
+form.short input[type="password"],
+form.box select,
+form.box textarea,
+form.box button,
+form.short button,
+form.box input[type="button"],
+form.box input.button,
+.mobile-switcher {
+	-webkit-transition:
+		border-color 0.25s ease-in-out,
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-moz-transition:
+		border-color 0.25s ease-in-out,
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-o-transition:
+		border-color 0.25s ease-in-out,
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-ms-transition:
+		border-color 0.25s ease-in-out,
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	transition:
+		border-color 0.25s ease-in-out,
+		color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+}
+
+img.frame {
+	-webkit-transition:
+		border-color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-moz-transition:
+		border-color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-o-transition:
+		border-color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	-ms-transition:
+		border-color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+	transition:
+		border-color 0.25s ease-in-out,
+		background 0.25s ease-in-out;
+}
+
+
+/* System
+----------------------------------------------------------------------------------------------------*/
+
+#system .item > .links a {
+	-webkit-transition:
+		box-shadow 0.1s ease-in-out,
+		background-color 0.25s ease-in-out;
+	-moz-transition:
+		box-shadow 0.1s ease-in-out,
+		background-color 0.25s ease-in-out;
+	-o-transition:
+		box-shadow 0.1s ease-in-out,
+		background-color 0.25s ease-in-out;
+	-ms-transition:
+		box-shadow 0.1s ease-in-out,
+		background-color 0.25s ease-in-out;
+	transition:
+		box-shadow 0.1s ease-in-out,
+		background-color 0.25s ease-in-out;
+}
+
+#system .pagination li:hover {
+	-webkit-transition:
+		box-shadow 0.1s ease-in-out,
+		background 0.2s ease-in-out;
+	-moz-transition:
+		box-shadow 0.1s ease-in-out,
+		background 0.2s ease-in-out;
+	-o-transition:
+		box-shadow 0.1s ease-in-out,
+		background 0.2s ease-in-out;
+	-ms-transition:
+		box-shadow 0.1s ease-in-out,
+		background 0.2s ease-in-out;
+	transition:
+		box-shadow 0.1s ease-in-out,
+		background 0.2s ease-in-out;
+}
+
+#system .pagination li.previous:hover,
+#system .pagination li.next:hover {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
+}
+
+#searchbox .results li.result.selected {
+	-webkit-transition: 
+		color 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+	-moz-transition:
+		color 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+	-o-transition:
+		color 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+	-ms-transition:
+		color 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+	transition:
+		color 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+}
