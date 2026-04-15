@@ -204,11 +204,6 @@ section{padding:90px 0}
 .about p strong{color:var(--ink);font-weight:600}
 .about .sig{font-family:'Fraunces',serif;font-style:italic;color:var(--brand);margin-top:18px;font-size:18px}
 
-/* Workshop-manual spanner rule */
-.sprule{display:flex;align-items:center;gap:14px;margin:26px 0;max-width:220px}
-.sprule .line{flex:1;height:1px;background:var(--line)}
-.sprule svg{width:40px;height:14px;color:var(--accent);opacity:.75;flex-shrink:0}
-
 /* Area */
 .area{background:var(--brand-deep);color:var(--hero-ink);position:relative;overflow:hidden}
 .area .contours{position:absolute;inset:0;pointer-events:none;background-image:url('workshop-area-map.png?v=4');background-size:cover;background-position:center;filter:invert(1) grayscale(1) contrast(1.35) brightness(.85);mix-blend-mode:screen;opacity:.18}
@@ -255,8 +250,11 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   nav.primary{display:none}
   section{padding:70px 0}
   .hero{padding:70px 0 80px}
-  .area .places{columns:1}
-  .callout .wrap{flex-direction:column;align-items:flex-start}
+  /* Map becomes a little shorter so it doesn't dominate when stacked */
+  .area .mapwrap{aspect-ratio:16/10}
+  /* Callout centers instead of pinning to the left */
+  .callout .wrap{flex-direction:column;align-items:center;text-align:center}
+  .callout .ask{max-width:36ch}
 }
 @media (max-width: 640px){
   /* Compact horizontal: smaller logo on left, phone as a bordered card on the right */
@@ -309,8 +307,11 @@ footer.site .legal .credit a:hover{color:var(--accent)}
 
 @media (max-width: 560px){
   .svc-grid{grid-template-columns:1fr}
-  footer.site .wrap{grid-template-columns:1fr}
   .switcher{top:auto;bottom:12px;right:12px;left:12px;justify-content:center}
+  /* Footer: brand full width, Workshop + Hours side-by-side, Call us full width */
+  footer.site .wrap{grid-template-columns:1fr 1fr;gap:30px 24px}
+  footer.site .wrap > div:nth-child(1),
+  footer.site .wrap > div:nth-child(4){grid-column:1/-1}
 }
 </style>
 </head>
@@ -505,16 +506,6 @@ footer.site .legal .credit a:hover{color:var(--accent)}
         <h2>Stuart and David Gilbert. A father and son workshop.</h2>
       </div>
       <p>For more than seventy-five years between us, we've specialised in one thing. Keeping Land Rovers running properly for owners across Kent. We know these vehicles because we've spent our working lives under them.</p>
-      <div class="sprule" aria-hidden="true">
-        <span class="line"></span>
-        <svg viewBox="0 0 40 14" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <!-- open-ended spanner: open jaw left, ring right, handle between -->
-          <path d="M 8 7 L 28 7"/>
-          <path d="M 8 3.5 L 5 7 L 8 10.5"/>
-          <circle cx="31" cy="7" r="3"/>
-        </svg>
-        <span class="line"></span>
-      </div>
       <p>You'll speak to <strong>Stuart or David</strong> when you call. Same pair of hands, every visit. No call centres, no service managers. It's just the two of us, the workshop and a lot of Land Rover parts.</p>
       <p class="sig">Stuart and David Gilbert, Orchards, Sittingbourne.</p>
     </div>
