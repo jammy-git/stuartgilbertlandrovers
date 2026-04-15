@@ -81,14 +81,18 @@ img{max-width:100%;display:block}
 header.site{background:var(--paper);border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px;gap:24px}
 .logo{display:flex;flex-direction:column;line-height:.95;font-family:'Bebas Neue',sans-serif}
-.logo .row1{font-size:30px;letter-spacing:.05em;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
-.logo .row2{font-size:21px;letter-spacing:.32em;color:var(--brand);margin-top:5px}
+.logo .row{display:flex;justify-content:space-between;align-items:baseline}
+.logo .row > span{display:inline-block;flex:0 0 auto}
+.logo .row > .gap{flex-basis:.35em}
+.logo .row1{font-size:30px;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
+.logo .row2{font-size:21px;color:var(--brand);margin-top:5px}
 nav.primary{display:flex;gap:26px;font-size:15px}
 nav.primary a{color:var(--ink-soft);padding:4px 0;transition:.2s}
 nav.primary a:hover,nav.primary a.on{color:var(--ink)}
-.phone-top{text-align:right;line-height:1.2}
+.phone-top{text-align:right;line-height:1.2;display:block;color:var(--brand);transition:.2s}
+.phone-top:hover{color:var(--brand-deep)}
 .phone-top small{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px}
-.phone-top a{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em;color:var(--brand)}
+.phone-top .number{display:block;font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.04em;color:inherit}
 .phone-top .status{display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-top:6px;font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--ink-soft)}
 .phone-top .status .dot{width:7px;height:7px;border-radius:50%;background:#9b9b9b;flex-shrink:0}
 .phone-top .status.open .dot{background:#5a9d3f}
@@ -235,12 +239,59 @@ footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:
   .area .places{columns:1}
   .callout .wrap{flex-direction:column;align-items:flex-start}
 }
+@media (max-width: 640px){
+  /* Compact horizontal: smaller logo on left, phone as a bordered card on the right */
+  header.site .wrap{padding-top:16px;padding-bottom:16px;gap:14px;align-items:center}
+  .logo{flex:0 1 auto}
+  .logo .row1{font-size:22px;padding-bottom:2px}
+  .logo .row2{font-size:14px;margin-top:3px}
+  .phone-top{
+    flex:0 0 auto;
+    text-align:right;
+    padding:9px 13px 10px;
+    border:1.5px solid var(--brand);
+    border-radius:6px;
+    background:var(--paper);
+  }
+  .phone-top small{font-size:9.5px;letter-spacing:.16em;margin-bottom:1px}
+  .phone-top .number{font-size:24px;letter-spacing:.04em}
+  .phone-top .status{font-size:11px;margin-top:3px;gap:5px}
+  .phone-top .status .dot{width:6px;height:6px}
+}
+
+@media (max-width: 450px){
+  /* Narrow mobile: stack logo (full width) on top, phone as a dark CTA card below */
+  header.site .wrap{
+    flex-direction:column;
+    align-items:stretch;
+    gap:14px;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .logo{width:100%;align-items:stretch}
+  .logo .row1{font-size:clamp(28px,9vw,44px);padding-bottom:3px}
+  .logo .row2{font-size:clamp(20px,6.5vw,32px);margin-top:5px}
+  .phone-top{
+    display:block;
+    text-align:center;
+    padding:14px 16px;
+    background:var(--brand);
+    border:none;
+    border-radius:6px;
+    color:var(--hero-ink);
+  }
+  .phone-top:hover{background:var(--brand-deep);color:var(--hero-ink)}
+  .phone-top small{color:var(--hero-mute);font-size:11px;letter-spacing:.18em;margin-bottom:3px}
+  .phone-top .number{font-size:30px;letter-spacing:.04em;color:var(--hero-ink)}
+  .phone-top .status{justify-content:center;color:var(--hero-mute);font-size:12.5px;margin-top:5px;gap:6px}
+  .phone-top .status .dot{width:6px;height:6px}
+  .phone-top .status.open .dot{background:#7eb15a}
+}
+
 @media (max-width: 560px){
   .svc-grid{grid-template-columns:1fr}
   footer.site .wrap{grid-template-columns:1fr}
   .switcher{top:auto;bottom:12px;right:12px;left:12px;justify-content:center}
-  header.site .wrap{flex-wrap:wrap}
-  .phone-top{text-align:left;margin-top:8px}
 }
 </style>
 </head>
@@ -256,8 +307,8 @@ footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:
 <header class="site">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Stuart Gilbert Landrovers">
-      <span class="row1">Stuart Gilbert</span>
-      <span class="row2">Landrovers</span>
+      <span class="row row1" aria-hidden="true">Stuart Gilbert</span>
+      <span class="row row2" aria-hidden="true">Landrovers</span>
     </a>
     <nav class="primary" aria-label="Main">
       <a href="#" class="on">Home</a>
@@ -266,14 +317,14 @@ footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:
       <a href="#about">About us</a>
       <a href="#area">Find us</a>
     </nav>
-    <div class="phone-top">
+    <a class="phone-top" href="tel:+441795843116" aria-label="Call the workshop on 01795 843116">
       <small>Call the workshop</small>
-      <a href="tel:+441795843116">01795 843116</a>
-      <div class="status" id="open-status" aria-live="polite">
+      <span class="number">01795 843116</span>
+      <span class="status" id="open-status" aria-live="polite">
         <span class="dot" aria-hidden="true"></span>
         <span class="text"></span>
-      </div>
-    </div>
+      </span>
+    </a>
   </div>
 </header>
 
@@ -506,6 +557,21 @@ footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:
 </script>
 
 <script>
+// Wrap each character in the logo rows so flex can justify letter distribution
+document.querySelectorAll('.logo .row').forEach(el => {
+  const text = (el.textContent || '').toUpperCase();
+  el.textContent = '';
+  for (const ch of text) {
+    const s = document.createElement('span');
+    if (ch === ' ') {
+      s.className = 'gap';
+    } else {
+      s.textContent = ch;
+    }
+    el.appendChild(s);
+  }
+});
+
 const buttons = document.querySelectorAll('.switcher button');
 buttons.forEach(b => b.addEventListener('click', () => {
   buttons.forEach(x => x.classList.remove('active'));
