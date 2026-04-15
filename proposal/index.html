@@ -226,7 +226,10 @@ footer.site p,footer.site li{margin-bottom:6px;color:var(--hero-mute);line-heigh
 footer.site ul{list-style:none}
 footer.site a:hover{color:var(--accent-soft)}
 footer.site .phonelink{color:var(--accent-soft);font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;display:inline-block;margin-bottom:6px}
-footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:1px solid color-mix(in srgb, var(--hero-ink) 10%, transparent);display:flex;justify-content:space-between;font-size:12.5px;color:color-mix(in srgb, var(--hero-mute) 70%, transparent);gap:20px;flex-wrap:wrap}
+footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:1px solid color-mix(in srgb, var(--hero-ink) 10%, transparent);display:flex;justify-content:space-between;font-size:12.5px;color:color-mix(in srgb, var(--hero-mute) 70%, transparent);gap:12px 20px;flex-wrap:wrap}
+footer.site .legal .credit{font-style:italic}
+footer.site .legal .credit a{color:var(--accent-soft);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+footer.site .legal .credit a:hover{color:var(--accent)}
 
 /* Responsive */
 @media (max-width: 900px){
@@ -540,6 +543,7 @@ footer.site .legal{grid-column:1/-1;margin-top:30px;padding-top:22px;border-top:
     <div class="legal">
       <span>&copy; 2026 Stuart Gilbert Landrovers. All rights reserved.</span>
       <span>Kent's independent Land Rover specialist. Sittingbourne, Maidstone, Faversham, Medway.</span>
+      <span class="credit">Designed &amp; built by <a href="https://jamesludlow.com" target="_blank" rel="noopener">James Ludlow</a>.</span>
     </div>
   </div>
 </footer>
