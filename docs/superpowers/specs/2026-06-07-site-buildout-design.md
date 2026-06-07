@@ -47,9 +47,9 @@ Decisions baked into this map:
 
 - **Eleventy v3 + Nunjucks.** One base layout (header/nav/footer); a shared `location` template for the four town pages; content as data where it repeats (nav, services list, NAP, reviews).
 - **CSS fully inlined per page at build.** Single source stylesheet (~15KB) derived from the approved proposal page (Coniston Green variables only). No external stylesheet request → zero render-blocking CSS.
-- **Fonts self-hosted**: Bebas Neue, Fraunces, Manrope — latin subset, WOFF2 only, `font-display: swap` with metric-matched fallbacks (CLS ≈ 0). Removes the two Google Fonts origins from the critical path. **Preload only the above-the-fold critical font files actually used on first render** (likely one weight each of Bebas Neue and Fraunces for the hero); non-critical weights/families load normally. Preloading every family/weight would create competing high-priority downloads ahead of LCP — unnecessary risk.
+- **Fonts self-hosted**: Bebas Neue, Fraunces, Manrope — latin subset, WOFF2 only, `font-display: swap` with metric-matched fallbacks (CLS ≈ 0). Removes the two Google Fonts origins from the critical path. **Preload only the above-the-fold critical font files actually used on first render, decided per page** (on the home page, likely one weight each of Bebas Neue and Fraunces for the hero); non-critical weights/families load normally. Preloading every family/weight would create competing high-priority downloads ahead of LCP — unnecessary risk.
 - **JS**: only the existing open/closed-status and seasonal-note logic, inlined; Turnstile script on `/contact/` only. No frameworks, no bundler.
-- **Map**: keep the embedded Google Maps iframe (James's decision, 2026-06-07 — also satisfies the package's "Google Maps" promise literally), with `loading="lazy"`. **Layout requirement, not assumption:** on every page that carries it — `/contact/` especially — the map must be positioned after the primary contact details/form and verified to sit below the initial mobile viewport; `loading="lazy"` near the top of the page can still fetch early. If it can't be kept below the fold, or it costs the Lighthouse 100 gate anyway, use the click-to-load facade immediately — the gate wins over the always-live embed.
+- **Map**: keep the embedded Google Maps iframe (James's decision, 2026-06-07 — also satisfies the package's "Google Maps" promise literally), with `loading="lazy"`. **Layout requirement, not assumption:** on every page that carries it — `/contact/` especially — the map must be positioned after the primary contact details/form and verified to sit below the initial mobile viewport; `loading="lazy"` near the top of the page can still fetch early. If it can't be kept below the fold, or it costs the Lighthouse 100 gate anyway, use the click-to-load facade immediately — the gate wins over the always-live embed. (A facade still satisfies the package's "Google Maps" promise: it is the same Google Map, one tap away.)
 - **Images**: AVIF/WebP with explicit width/height; workshop photo responsively sized.
 
 ## SEO/GEO infrastructure
@@ -68,7 +68,7 @@ Decisions baked into this map:
 - **Day-1 spike (acceptance criterion before any page is built on top of it):** prove an email arrives in a real inbox from the chosen mechanism. Preference order: (1) `send_email` binding directly in the Pages Function; (2) a tiny dedicated Worker holding the `send_email` binding, called from the Pages Function via service binding — still Cloudflare-native, no new vendor; (3) Resend free API as last resort, acknowledged as a real operational cost (new vendor account, API key secret, sender-domain DNS records).
 - Progressive enhancement, honestly stated: the form renders and POSTs without JS, but Turnstile requires client-side JS to mint a token, so no-JS submissions fail verification with a clear error message that gives the phone number as the fallback (phone is the garage's primary channel anyway). Honeypot field as a second spam layer. We do not claim a fully working no-JS submission path.
 - Turnstile script loads lazily on first form interaction (focus/touch), so `/contact/` holds its Lighthouse 100 — the gate must not be silently softened to accommodate the third-party script.
-- **Submit-while-loading behaviour defined:** between first interaction and token-ready, the submit button is disabled with a short visible status ("checking you're human…"); a submit attempt during that window is intercepted and queued until the token arrives. A fast keyboard/mobile submit must not produce an avoidable verification failure.
+- **Submit-while-loading behaviour defined:** between first interaction and token-ready, the submit button is disabled with a short visible status ("checking you're human…"); a submit attempt during that window is intercepted and queued until the token arrives. A fast keyboard/mobile submit must not produce an avoidable verification failure. If the Turnstile script fails to load within a timeout (network failure, blocker), the queued submit is released to the same failure UX as the no-JS path: clear error + phone-number fallback — never an indefinite wait.
 - Setup dependencies: Email Routing enabled on the zone; Stuart's address added as a verified destination (he must click one verification link).
 
 ## Hosting & launch
@@ -97,4 +97,15 @@ Cost: £0/month (Pages free tier, Workers free tier for the function, Email Rout
 - All four 301 redirects checked (incl. `/index.html → /`), plus trailing-slash normalisation spot-checks
 - One real end-to-end form submission arriving in an inbox
 - `/contact/sent/` carries `noindex` and is absent from the generated `sitemap.xml` (build-output property, easy to regress)
+- Map below-fold requirement verified directly: on a throttled mobile viewport, confirm the map iframe makes no network request in the initial load trace on every page that carries it; if it fetches early, that is the trigger to switch to the facade
 - axe accessibility pass on every template
+
+## Post-launch SEO verification
+
+Lighthouse validates the build; Search Console validates discoverability. Within the first week after DNS cutover:
+
+1. Set up **Google Search Console** (domain property, verified via Cloudflare DNS) and **Bing Webmaster Tools** (imports from GSC).
+2. Submit `sitemap.xml` in both.
+3. Confirm the four 301 redirects are being followed (URL Inspection on the old URLs).
+4. Crawl/indexing check after a few days: all sitemap URLs discovered and indexable, no unexpected `noindex`/canonical surprises, `/contact/sent/` not indexed.
+5. Confirm the Google Business Profile points at the new URLs (NAP consistency).
