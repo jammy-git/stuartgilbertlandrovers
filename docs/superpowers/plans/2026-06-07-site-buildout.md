@@ -308,7 +308,7 @@ git add src/_data && git commit -m "feat: shared site data (NAP, nav, services w
 ### Task 5: Real base layout + partials
 
 **Files:**
-- Create: `src/_includes/base.njk` (replace skeleton), `src/_includes/partials/header.njk`, `src/_includes/partials/footer.njk`, `src/_includes/partials/map.njk`, `src/_includes/partials/callout.njk`, `src/_includes/js/status.js`
+- Create: `src/_includes/base.njk` (replace skeleton), `src/_includes/partials/header.njk`, `src/_includes/partials/footer.njk`, `src/_includes/partials/map.njk`, `src/_includes/partials/callout.njk`, `src/_includes/partials/schema.njk`, `src/_includes/js/status.js`
 
 - [ ] **Step 1: `base.njk`** — structure (adapt head/header/footer markup from `proposal/index.html`, replacing anchors with page URLs):
 
@@ -416,7 +416,7 @@ git add -A && git commit -m "feat: home page ported to eleventy from approved pr
 **Files:**
 - Create: `src/_data/faq.js`, `src/faq.njk` (permalink `/faq/`)
 
-- [ ] **Step 1:** `faq.js` — 12 Q&As from Appendix C (verbatim). Three are marked `confirmed: false` (MOT, collection, turnaround) pending Stuart; render only confirmed ones.
+- [ ] **Step 1:** `faq.js` — 14 Q&As from Appendix C (verbatim). Three are marked `confirmed: false` (MOT, collection, turnaround) pending Stuart; render only confirmed ones (11 at launch, meeting the spec's 10–15 range).
 
 - [ ] **Step 2:** `faq.njk` — semantic `<details>`-free markup (plain `h2`/`p` per Q&A — AI-quotable, no JS), plus `FAQPage` JSON-LD generated from the same data. Spec note: no rich-result expectation; schema is for machines/GEO.
 
@@ -457,8 +457,9 @@ Body: town-specific hero (h1 = `Land Rover specialist serving {{ loc.town }}`), 
 
 **Files:**
 - Create: `src/contact.njk` (permalink `/contact/`), `src/contact-sent.njk` (permalink `/contact/sent/`, frontmatter `noindex: true`), `src/_includes/js/turnstile.js`
+- Modify: `src/_includes/base.njk` — add a conditional include after the status script: `{% if turnstile %}<script>{% include "js/turnstile.js" %}</script>{% endif %}`; `contact.njk` sets `turnstile: true` in frontmatter
 
-- [ ] **Step 1: `contact.njk`** — order per spec (map BELOW contact details + form): phone-first block ("a call gets the fastest reply"), hours, form (`method="POST" action="/api/contact"`: name, phone or email, message, hidden honeypot input `name="company"` with `autocomplete="off" tabindex="-1"` hidden via CSS class, `<div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER">`, submit button), then address + directions, then the map partial last.
+- [ ] **Step 1: `contact.njk`** — order per spec (map BELOW contact details + form): phone-first block ("a call gets the fastest reply"), hours, form (`method="POST" action="/api/contact"`: `name="name"`, `name="contact"` (single "Phone number or email" field — MUST be named `contact`, Task 12's function reads it), `name="message"`, hidden honeypot input `name="company"` with `autocomplete="off" tabindex="-1"` hidden via CSS class, `<div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER">`, submit button), then address + directions, then the map partial last.
 
 - [ ] **Step 2: `turnstile.js`** (inlined only on this page via a frontmatter flag the layout checks):
 
@@ -670,7 +671,7 @@ Expected: all pass, zero broken links. Fix anything found before proceeding.
 Dashboard (or wrangler): Pages project `stuartgilbertlandrovers`, connect GitHub repo, production branch `master`, build command `npm run build`, output `_site`. Configure: env var `CONTACT_DEST`, secret `TURNSTILE_SECRET`, email binding `CONTACT_EMAIL` (or `MAILER` service binding per Task 1 decision). Create a Turnstile widget for the domain in the dashboard; put the real sitekey into `contact.njk` (replace `TURNSTILE_SITE_KEY_PLACEHOLDER`). Push the branch → preview URL builds.
 
 - [ ] **Step 3: On the preview URL**
-  - Lighthouse (DevTools, mobile + desktop) on ALL of: `/`, `/services/`, `/about/`, `/contact/`, `/faq/`, one town page. Gate: 100/100/100/100. Investigate any miss; the spec names the two pre-approved mitigations (map facade, per-page font preloads).
+  - Lighthouse (DevTools, mobile + desktop) on ALL 11 URLs: `/`, `/services/`, `/about/`, `/contact/`, `/faq/`, all four town pages, `/contact/sent/`, `/404.html`. Gate: 100/100/100/100 (spec says every page — no sampling). Investigate any miss; the spec names the two pre-approved mitigations (map facade, per-page font preloads).
   - Map below-fold check: throttled mobile viewport, Network panel — zero `google.com/maps` requests in the initial trace on `/`, `/contact/`, town pages. Early fetch ⇒ switch to facade per spec.
   - One REAL form submission end-to-end → arrives at `CONTACT_DEST` inbox; verify honeypot path (fill `company` via DevTools) silently "succeeds"; verify no-JS path returns the HTML error page with phone number (disable JS).
   - Schema: Rich Results Test on `/` (AutoRepair, BreadcrumbList on a subpage); Schema Markup Validator on `/faq/`.
@@ -689,7 +690,7 @@ Dashboard (or wrangler): Pages project `stuartgilbertlandrovers`, connect GitHub
 
 - [ ] **Step 2: Delete the old site** in the same branch: root `index.html`, `services.html`, `contact-us.html`, `links.html`, `CNAME`, and dirs `templates/`, `plugins/`, `js/`, `css/`, `inc/`, `media/`, `images/` (after confirming `src/images/` carries everything the new site uses). Add `proposal/` to `.eleventyignore` if not already outside `src/` (it is outside `src/`, so it never enters the build — verify `_site/` contains no `proposal/`).
 
-- [ ] **Step 3: Merge `site-buildout` → `master`, push.** Pages builds production.
+- [ ] **Step 3: Merge `site-buildout` → `master`, push.** Pages builds production. **Execute Steps 3 and 4 back-to-back:** deleting `CNAME` drops the GitHub Pages custom domain, so the old origin 404s until the DNS flip — keep the window to minutes.
 
 - [ ] **Step 4: DNS cutover** — in Cloudflare DNS, point `www` + apex at the Pages project (CNAME flattening for apex), remove the GitHub Pages records; disable GitHub Pages in repo settings. Verify `curl -sI https://www.stuartgilbertlandrovers.co.uk | head -3` serves the new site.
 
@@ -729,7 +730,7 @@ Dashboard (or wrangler): Pages project `stuartgilbertlandrovers`, connect GitHub
 
 **About page** — opening = home about section; then: the garage's history as a father-and-son operation; "more than seventy-five years between us"; how a visit works (phone first, speak to Stuart or David, same hands every visit); the workshop at Orchards; the pull quote "If it's got a green oval on the bonnet, we've probably had one in. — Stuart Gilbert"; closing phone CTA.
 
-## Appendix C: FAQ copy (12 items)
+## Appendix C: FAQ copy (14 items, 11 confirmed at launch)
 
 1. **How much does a Land Rover service cost?** A service including parts and labour starts from around £290 + VAT, and you get a stamp in the book. (confirmed)
 2. **Do I need to book?** Yes — the workshop runs by appointment only. Please telephone 01795 843116 first; you'll speak to Stuart or David. (confirmed)
@@ -740,6 +741,8 @@ Dashboard (or wrangler): Pages project `stuartgilbertlandrovers`, connect GitHub
 7. **Do you do modifications and improvements?** Yes, improvements and modifications to most models. Give us a ring and we'll talk it through. (confirmed)
 8. **Do you do chassis welding?** Yes — welding, chassis, as needed, assessed honestly first. (confirmed)
 9. **Do you work on new Land Rovers as well as classics?** Yes — from Series I right through to the current L663 Defender. (confirmed)
+9a. **Do you work on Range Rovers and Discoverys, or just Defenders?** All of them — Range Rover Classic through to the L460, every Discovery including the Sport, Velar, Evoque and Freelander too. (confirmed)
+9b. **Why choose an independent specialist over a main dealer?** You deal with the people doing the work — Stuart or David, every time — at independent-garage rates, with over 75 years of Land Rover experience between them. (confirmed)
 10. **Do you do MOTs?** *(confirmed: false — ask Stuart)*
 11. **Can you collect my vehicle?** *(confirmed: false — ask Stuart)*
 12. **How long does a service take?** *(confirmed: false — ask Stuart)*
