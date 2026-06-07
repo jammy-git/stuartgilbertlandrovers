@@ -1,0 +1,22 @@
+{
+  "name": "stuartgilbertlandrovers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "test": "node --test functions/lib/",
+    "check:links": "linkinator _site --recurse --silent",
+    "check:html": "html-validate \"_site/**/*.html\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "html-validate": "^8.24.0",
+    "linkinator": "^6.1.2"
+  },
+  "dependencies": {
+    "mimetext": "^3.0.24"
+  }
+}
