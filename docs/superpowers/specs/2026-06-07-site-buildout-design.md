@@ -64,7 +64,7 @@ Decisions baked into this map:
 ## Contact form
 
 - `/contact/` form POSTs to `/api/contact`, a Pages Function in-repo (`functions/api/contact.js`).
-- Function: validate fields → verify Turnstile token server-side → send email to Stuart's personal address via the Email Routing `send_email` binding.
+- Function: validate fields → verify Turnstile token server-side → send email to Stuart's personal address via the Email Routing `send_email` binding. On success, 303-redirect to `/contact/sent/`. On failure, return an HTML error page (not JSON) so the message — including the phone-number fallback — is visible to any browser.
 - **Day-1 spike (acceptance criterion before any page is built on top of it):** prove an email arrives in a real inbox from the chosen mechanism. Preference order: (1) `send_email` binding directly in the Pages Function; (2) a tiny dedicated Worker holding the `send_email` binding, called from the Pages Function via service binding — still Cloudflare-native, no new vendor; (3) Resend free API as last resort, acknowledged as a real operational cost (new vendor account, API key secret, sender-domain DNS records).
 - Progressive enhancement, honestly stated: the form renders and POSTs without JS, but Turnstile requires client-side JS to mint a token, so no-JS submissions fail verification with a clear error message that gives the phone number as the fallback (phone is the garage's primary channel anyway). Honeypot field as a second spam layer. We do not claim a fully working no-JS submission path.
 - Turnstile script loads lazily on first form interaction (focus/touch), so `/contact/` holds its Lighthouse 100 — the gate must not be silently softened to accommodate the third-party script.
@@ -95,4 +95,5 @@ Cost: £0/month (Pages free tier, Workers free tier for the function, Email Rout
 - Schema validation, two tools: Google Rich Results Test for types with rich-result eligibility (`AutoRepair`/LocalBusiness, `BreadcrumbList`); Schema Markup Validator for general JSON-LD validity of everything (incl. `FAQPage`, which has no rich-result eligibility here)
 - All four 301 redirects checked (incl. `/index.html → /`), plus trailing-slash normalisation spot-checks
 - One real end-to-end form submission arriving in an inbox
+- `/contact/sent/` carries `noindex` and is absent from the generated `sitemap.xml` (build-output property, easy to regress)
 - axe accessibility pass on every template
