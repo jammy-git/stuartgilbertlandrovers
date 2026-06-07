@@ -31,6 +31,7 @@
 | `/land-rover-specialist-faversham/` | Local page | land rover garage faversham |
 | `/land-rover-specialist-medway/` | Local page | land rover specialist medway |
 | `/faq/` | 10–15 real Q&As | People-Also-Ask + AI/GEO answers |
+| `/contact/sent/` | Form thank-you page (`noindex`, excluded from sitemap) | — |
 | `/404.html` | Not-found page | — |
 
 Decisions baked into this map:
@@ -48,7 +49,7 @@ Decisions baked into this map:
 - **CSS fully inlined per page at build.** Single source stylesheet (~15KB) derived from the approved proposal page (Coniston Green variables only). No external stylesheet request → zero render-blocking CSS.
 - **Fonts self-hosted**: Bebas Neue, Fraunces, Manrope — latin subset, WOFF2 only, preloaded, `font-display: swap` with metric-matched fallbacks (CLS ≈ 0). Removes the two Google Fonts origins from the critical path.
 - **JS**: only the existing open/closed-status and seasonal-note logic, inlined; Turnstile script on `/contact/` only. No frameworks, no bundler.
-- **Map**: static map image linking out to Google Maps (replaces the live iframe — the heaviest third-party on the current page). Fallback if the static image proves unworkable: click-to-load facade around the iframe.
+- **Map**: static map image linking out to Google Maps (replaces the live iframe — the heaviest third-party on the current page). Source: self-made/OSM-derived image (e.g. evolve the existing `proposal/workshop-area-map.png`) — **not** Google Static Maps API, which needs a billed API key and would break the £0/month claim. Fallback if the static image proves unworkable: click-to-load facade around the iframe.
 - **Images**: AVIF/WebP with explicit width/height; workshop photo responsively sized.
 
 ## SEO/GEO infrastructure
@@ -65,7 +66,8 @@ Decisions baked into this map:
 - `/contact/` form POSTs to `/api/contact`, a Pages Function in-repo (`functions/api/contact.js`).
 - Function: validate fields → verify Turnstile token server-side → send email to Stuart's personal address via the Email Routing `send_email` binding.
 - **Verify during build** that the `send_email` binding is available to Pages Functions; if not, fallback is the function calling Resend's free API. Either way invisible to the visitor.
-- Progressive enhancement: plain POST + redirect to a thank-you state works with JS disabled. Honeypot field as a second spam layer.
+- Progressive enhancement: plain POST + 303 redirect to the static `/contact/sent/` page works with JS disabled. Honeypot field as a second spam layer.
+- Turnstile script loads lazily on first form interaction (focus/touch), so `/contact/` holds its Lighthouse 100 — the gate must not be silently softened to accommodate the third-party script.
 - Setup dependencies: Email Routing enabled on the zone; Stuart's address added as a verified destination (he must click one verification link).
 
 ## Hosting & launch
