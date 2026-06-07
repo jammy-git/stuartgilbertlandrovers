@@ -12,7 +12,7 @@
 
 <style>
 :root{
-  /* Scheme 1: CONISTON GREEN (default) - Defender heritage forest green */
+  /* CONISTON GREEN - Defender heritage forest green */
   --bg:          #f3efe6;     /* Limestone */
   --bg-soft:     #ebe5d6;
   --paper:       #fbf8f1;
@@ -28,40 +28,6 @@
   --hero-mute:   #cfd8cf;
   --shadow:      0 20px 40px -20px rgba(15,31,20,.3);
 }
-html[data-theme="santorini"]{
-  /* Scheme 2: SANTORINI BLACK - modern Range Rover near-black */
-  --bg:          #efece6;
-  --bg-soft:     #e4e0d7;
-  --paper:       #ffffff;
-  --ink:         #141517;
-  --ink-soft:    #4a4d52;
-  --brand:       #0A0C0F;     /* Santorini Black */
-  --brand-deep:  #040507;
-  --accent:      #c98822;
-  --accent-soft: #e8b86c;
-  --line:        #d4d0c5;
-  --hero-grad:   linear-gradient(155deg, #0A0C0F 0%, #040507 100%);
-  --hero-ink:    #f5f3ee;
-  --hero-mute:   #bcbcb7;
-  --shadow:      0 20px 40px -20px rgba(0,0,0,.45);
-}
-html[data-theme="keswick"]{
-  /* Scheme 3: KESWICK GREEN - lighter classic Land Rover green, Masai Red accent */
-  --bg:          #f5f2ea;
-  --bg-soft:     #ece7da;
-  --paper:       #ffffff;
-  --ink:         #20292e;
-  --ink-soft:    #4e5961;
-  --brand:       #445347;     /* Keswick Green */
-  --brand-deep:  #2a342d;
-  --accent:      #8C3A28;     /* Masai Red */
-  --accent-soft: #c27560;
-  --line:        #d9d2c1;
-  --hero-grad:   linear-gradient(155deg, #445347 0%, #2a342d 100%);
-  --hero-ink:    #f7f3e9;
-  --hero-mute:   #cdd2c9;
-  --shadow:      0 20px 40px -20px rgba(42,52,45,.3);
-}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -70,12 +36,6 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
 .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
-
-/* Theme switcher (demo only) */
-.switcher{position:fixed;bottom:16px;left:16px;z-index:200;background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:4px;display:flex;gap:2px;box-shadow:var(--shadow);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.switcher button{border:0;background:transparent;color:var(--ink-soft);padding:6px 11px;border-radius:100px;cursor:pointer;font:inherit;transition:.2s}
-.switcher button.active{background:var(--brand);color:var(--hero-ink)}
-.switcher .label{padding:6px 6px 6px 10px;color:var(--ink-soft);font-weight:500;text-transform:none;letter-spacing:.02em}
 
 /* Header */
 header.site{background:var(--paper);border-bottom:1px solid var(--line)}
@@ -307,7 +267,6 @@ footer.site .legal .credit a:hover{color:var(--accent)}
 
 @media (max-width: 560px){
   .svc-grid{grid-template-columns:1fr}
-  .switcher{top:auto;bottom:12px;right:12px;left:12px;justify-content:center}
   /* Footer: brand full width, Workshop + Hours side-by-side, Call us full width */
   footer.site .wrap{grid-template-columns:1fr 1fr;gap:30px 24px}
   footer.site .wrap > div:nth-child(1),
@@ -317,13 +276,6 @@ footer.site .legal .credit a:hover{color:var(--accent)}
 </head>
 <body>
 
-<div class="switcher" role="tablist" aria-label="Colour scheme">
-  <span class="label">Scheme</span>
-  <button data-t="coniston" class="active">Coniston Green</button>
-  <button data-t="santorini">Santorini Black</button>
-  <button data-t="keswick">Keswick Green</button>
-</div>
-
 <header class="site">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Stuart Gilbert Landrovers">
@@ -332,9 +284,9 @@ footer.site .legal .credit a:hover{color:var(--accent)}
     </a>
     <nav class="primary" aria-label="Main">
       <a href="#" class="on">Home</a>
+      <a href="#about">About us</a>
       <a href="#services">What we do</a>
       <a href="#marques">Models</a>
-      <a href="#about">About us</a>
       <a href="#area">Find us</a>
     </nav>
     <a class="phone-top" href="tel:+441795843116" aria-label="Call the workshop on 01795 843116">
@@ -355,7 +307,7 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   <div class="wrap">
     <div class="eyebrow">Independent Land Rover specialist, Kent</div>
     <h1>Looking after Kent's Land Rovers for <em>over seventy-five years</em>.</h1>
-    <p class="lede">A small, father and son workshop in Sittingbourne. Servicing, repairs and welding for Land Rover, Range Rover, Discovery and Defender owners across Kent. From the Series I, through every Defender, to the new L663.</p>
+    <p class="lede">A small, father and son workshop in Sittingbourne. Servicing, repairs and welding for Land Rover, Range Rover, Discovery, Defender, &amp; Series owners across Kent.</p>
   </div>
 </section>
 
@@ -391,6 +343,26 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   </div>
 </aside>
 
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="photo-frame">
+      <svg class="regmark tl" aria-hidden="true" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 7 L 14 7 M7 0 L 7 14"/><circle cx="7" cy="7" r="3"/></svg>
+      <svg class="regmark br" aria-hidden="true" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 7 L 14 7 M7 0 L 7 14"/><circle cx="7" cy="7" r="3"/></svg>
+      <div class="photo" role="img" aria-label="Stuart and David Gilbert at the workshop"></div>
+      <div class="photo-caption">Stuart and David Gilbert at the workshop, Orchards.</div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <div class="tag">About us</div>
+        <h2>Stuart and David Gilbert. A father and son workshop.</h2>
+      </div>
+      <p>For more than seventy-five years between us, we've specialised in one thing. Keeping Land Rovers running properly for owners across Kent. We know these vehicles because we've spent our working lives under them.</p>
+      <p>You'll speak to <strong>Stuart or David</strong> when you call. Same pair of hands, every visit. No call centres, no service managers. It's just the two of us, the workshop and a lot of Land Rover parts.</p>
+      <p class="sig">Stuart and David Gilbert, Orchards, Sittingbourne.</p>
+    </div>
+  </div>
+</section>
+
 <section class="services" id="services">
   <div class="wrap">
     <div class="section-head">
@@ -403,7 +375,7 @@ footer.site .legal .credit a:hover{color:var(--accent)}
       <article class="svc">
         <div class="num">No. 01</div>
         <h3>Servicing</h3>
-        <p>Full Land Rover servicing. Parts and labour from around £290 + VAT. Stamp in the book.</p>
+        <p>Land Rover servicing. Parts and labour from around £290 + VAT. Stamp in the book.</p>
       </article>
       <article class="svc">
         <div class="num">No. 02</div>
@@ -418,12 +390,12 @@ footer.site .legal .credit a:hover{color:var(--accent)}
       <article class="svc">
         <div class="num">No. 04</div>
         <h3>Welding</h3>
-        <p>Welding. Chassis and bodywork, as needed.</p>
+        <p>Welding. Chassis, as needed.</p>
       </article>
       <article class="svc">
         <div class="num">No. 05</div>
-        <h3>Defender improvements</h3>
-        <p>Improvements and modifications to 90 and 110 Defenders. Happy to talk it through if you give us a call.</p>
+        <h3>Land Rover improvements</h3>
+        <p>Improvements and modifications to most models. Happy to talk it through if you give us a call.</p>
       </article>
       <article class="svc cta">
         <div class="num">No. 06</div>
@@ -492,30 +464,10 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="photo-frame">
-      <svg class="regmark tl" aria-hidden="true" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 7 L 14 7 M7 0 L 7 14"/><circle cx="7" cy="7" r="3"/></svg>
-      <svg class="regmark br" aria-hidden="true" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 7 L 14 7 M7 0 L 7 14"/><circle cx="7" cy="7" r="3"/></svg>
-      <div class="photo" role="img" aria-label="Stuart and David Gilbert at the workshop"></div>
-      <div class="photo-caption">Stuart and David Gilbert at the workshop, Orchards.</div>
-    </div>
-    <div>
-      <div class="section-head" style="margin-bottom:0">
-        <div class="tag">About us</div>
-        <h2>Stuart and David Gilbert. A father and son workshop.</h2>
-      </div>
-      <p>For more than seventy-five years between us, we've specialised in one thing. Keeping Land Rovers running properly for owners across Kent. We know these vehicles because we've spent our working lives under them.</p>
-      <p>You'll speak to <strong>Stuart or David</strong> when you call. Same pair of hands, every visit. No call centres, no service managers. It's just the two of us, the workshop and a lot of Land Rover parts.</p>
-      <p class="sig">Stuart and David Gilbert, Orchards, Sittingbourne.</p>
-    </div>
-  </div>
-</section>
-
 <section class="quote" aria-label="From the workshop">
   <div class="wrap">
     <blockquote>
-      <p>If it's got a green oval on the bonnet, we've probably had one on the ramp.</p>
+      <p>If it's got a green oval on the bonnet, we've probably had one in.</p>
       <cite>Stuart Gilbert</cite>
     </blockquote>
   </div>
@@ -615,13 +567,6 @@ document.querySelectorAll('.logo .row').forEach(el => {
   }
 });
 
-const buttons = document.querySelectorAll('.switcher button');
-buttons.forEach(b => b.addEventListener('click', () => {
-  buttons.forEach(x => x.classList.remove('active'));
-  b.classList.add('active');
-  document.documentElement.setAttribute('data-theme', b.dataset.t);
-}));
-
 // Seasonal note - rotates by calendar month
 const seasonalNotes = [
   "Winter's at its coldest. Coolant and battery are worth a check before they let you down.",
@@ -629,7 +574,7 @@ const seasonalNotes = [
   'Winter has left the roads full of potholes. Time to look at the suspension.',
   'Spring brings longer drives. A fluids check and a look over is never a bad idea.',
   "Show season's starting. If it's been sat all winter, book it in first.",
-  'Caravan and towing weather. Worth checking couplings, brakes and tyres.',
+  'Longer summer drives ahead. Worth checking brakes, tyres and fluids.',
   'Proper summer heat. Coolant and the fan should be working properly.',
   'Holiday season means big miles. Better a service now than a breakdown on the way.',
   "Autumn's on the way. Time for the annual service before the weather turns.",
