@@ -30,7 +30,7 @@
 | `/land-rover-specialist-maidstone/` | Local page | land rover garage maidstone |
 | `/land-rover-specialist-faversham/` | Local page | land rover garage faversham |
 | `/land-rover-specialist-medway/` | Local page | land rover specialist medway |
-| `/faq/` | 10–15 real Q&As | People-Also-Ask + AI/GEO answers |
+| `/faq/` | 10–15 real Q&As | long-tail question queries + AI/GEO answers |
 | `/contact/sent/` | Form thank-you page (`noindex`, excluded from sitemap) | — |
 | `/404.html` | Not-found page | — |
 
@@ -39,9 +39,9 @@ Decisions baked into this map:
 - **No standalone Kent page** — the home page owns the "Kent" head term; a separate page would cannibalise it.
 - **Town pages must be genuinely differentiated** (drive time and route from that town, town-specific copy, which services people travel for). Thin near-duplicates read as doorway pages and hurt rankings.
 - **Keyword-rich root slugs** (`/land-rover-specialist-maidstone/`) over `/areas/maidstone/`.
-- **FAQ page is the main GEO lever**: structured Q&A + `FAQPage` schema is what AI search engines quote and what feeds People-Also-Ask.
+- **FAQ page is a GEO/user lever, not a Google rich-result lever.** Google restricts FAQ rich results to well-known government/health sites (per its FAQPage docs), so expect no SERP rich-result treatment. The page earns its place by answering long-tail question queries and being quotable by AI search engines. `FAQPage` JSON-LD stays (harmless, machine-readable for AI), but no launch gate depends on FAQ rich-result eligibility.
 
-**301 redirects** via Cloudflare Pages `_redirects`: `/services.html → /services/`, `/contact-us.html → /contact/`, `/links.html → /`.
+**301 redirects** via Cloudflare Pages `_redirects`: `/index.html → /`, `/services.html → /services/`, `/contact-us.html → /contact/`, `/links.html → /`. (Cloudflare Pages normalises trailing-slash variants itself; verify during launch checks.)
 
 ## Architecture
 
@@ -49,7 +49,7 @@ Decisions baked into this map:
 - **CSS fully inlined per page at build.** Single source stylesheet (~15KB) derived from the approved proposal page (Coniston Green variables only). No external stylesheet request → zero render-blocking CSS.
 - **Fonts self-hosted**: Bebas Neue, Fraunces, Manrope — latin subset, WOFF2 only, preloaded, `font-display: swap` with metric-matched fallbacks (CLS ≈ 0). Removes the two Google Fonts origins from the critical path.
 - **JS**: only the existing open/closed-status and seasonal-note logic, inlined; Turnstile script on `/contact/` only. No frameworks, no bundler.
-- **Map**: static map image linking out to Google Maps (replaces the live iframe — the heaviest third-party on the current page). Source: self-made/OSM-derived image (e.g. evolve the existing `proposal/workshop-area-map.png`) — **not** Google Static Maps API, which needs a billed API key and would break the £0/month claim. Fallback if the static image proves unworkable: click-to-load facade around the iframe.
+- **Map**: keep the embedded Google Maps iframe (James's decision, 2026-06-07 — also satisfies the package's "Google Maps" promise literally). It sits below the fold with `loading="lazy"`, which keeps it out of the initial trace. If it nonetheless costs the Lighthouse 100 gate on any page, escalate to a click-to-load facade around the same iframe — the gate wins over the always-live embed.
 - **Images**: AVIF/WebP with explicit width/height; workshop photo responsively sized.
 
 ## SEO/GEO infrastructure
@@ -65,8 +65,8 @@ Decisions baked into this map:
 
 - `/contact/` form POSTs to `/api/contact`, a Pages Function in-repo (`functions/api/contact.js`).
 - Function: validate fields → verify Turnstile token server-side → send email to Stuart's personal address via the Email Routing `send_email` binding.
-- **Verify during build** that the `send_email` binding is available to Pages Functions; if not, fallback is the function calling Resend's free API. Either way invisible to the visitor.
-- Progressive enhancement: plain POST + 303 redirect to the static `/contact/sent/` page works with JS disabled. Honeypot field as a second spam layer.
+- **Day-1 spike (acceptance criterion before any page is built on top of it):** prove an email arrives in a real inbox from the chosen mechanism. Preference order: (1) `send_email` binding directly in the Pages Function; (2) a tiny dedicated Worker holding the `send_email` binding, called from the Pages Function via service binding — still Cloudflare-native, no new vendor; (3) Resend free API as last resort, acknowledged as a real operational cost (new vendor account, API key secret, sender-domain DNS records).
+- Progressive enhancement, honestly stated: the form renders and POSTs without JS, but Turnstile requires client-side JS to mint a token, so no-JS submissions fail verification with a clear error message that gives the phone number as the fallback (phone is the garage's primary channel anyway). Honeypot field as a second spam layer. We do not claim a fully working no-JS submission path.
 - Turnstile script loads lazily on first form interaction (focus/touch), so `/contact/` holds its Lighthouse 100 — the gate must not be silently softened to accommodate the third-party script.
 - Setup dependencies: Email Routing enabled on the zone; Stuart's address added as a verified destination (he must click one verification link).
 
@@ -74,7 +74,7 @@ Decisions baked into this map:
 
 1. Build on a feature branch; create the Cloudflare Pages project connected to `jammy-git/stuartgilbertlandrovers`; preview URL for James/Stuart review.
 2. Merge to `master` = live. DNS record flips from GitHub Pages to the Pages project (same Cloudflare dashboard).
-3. Delete old site files (`templates/`, `plugins/`, `js/`, `css/`, `inc/`, `media/`, old root HTML) and `CNAME`; exclude `proposal/` (contains the client PDF) from build output.
+3. **Pre-delete audit:** crawl the built site (e.g. a link checker over the build output) and confirm every internal link and asset resolves, before removing anything old. Then delete old site files (`templates/`, `plugins/`, `js/`, `css/`, `inc/`, `media/`, old root HTML) and `CNAME`; exclude `proposal/` (contains the client PDF) from build output. (Note: `images/` holds both `stuart_david_gilbert.png` and `Stuart-David-Gilbert.JPG` — both currently valid; pick one for the new build and let the audit confirm nothing references the other.)
 4. Disable GitHub Pages on the repo.
 5. Enable Cloudflare Web Analytics on the Pages project.
 
@@ -92,7 +92,7 @@ Cost: £0/month (Pages free tier, Workers free tier for the function, Email Rout
 ## Verification before launch
 
 - Lighthouse run on every page (mobile + desktop) — gate: 100/100/100/100
-- Google Rich Results test on all schema
-- All three 301 redirects checked
+- Schema validation, two tools: Google Rich Results Test for types with rich-result eligibility (`AutoRepair`/LocalBusiness, `BreadcrumbList`); Schema Markup Validator for general JSON-LD validity of everything (incl. `FAQPage`, which has no rich-result eligibility here)
+- All four 301 redirects checked (incl. `/index.html → /`), plus trailing-slash normalisation spot-checks
 - One real end-to-end form submission arriving in an inbox
 - axe accessibility pass on every template
