@@ -1,0 +1,21 @@
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Stuart Gilbert Landrovers">
+      <span class="row row1" aria-hidden="true">{% for ch in "STUART GILBERT" | chars %}{% if ch == " " %}<span class="gap"></span>{% else %}<span>{{ ch }}</span>{% endif %}{% endfor %}</span>
+      <span class="row row2" aria-hidden="true">{% for ch in "LANDROVERS" | chars %}<span>{{ ch }}</span>{% endfor %}</span>
+    </a>
+    <nav class="primary" aria-label="Main">
+      {%- for item in nav %}
+      <a href="{{ item.url }}"{% if item.url == page.url %} class="on" aria-current="page"{% endif %}>{{ item.label }}</a>
+      {%- endfor %}
+    </nav>
+    <a class="phone-top" href="tel:{{ site.phoneTel }}" aria-label="Call the workshop on {{ site.phoneDisplay }}">
+      <small>Call the workshop</small>
+      <span class="number">{{ site.phoneDisplay }}</span>
+      <span class="status" id="open-status" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="text"></span>
+      </span>
+    </a>
+  </div>
+</header>

@@ -1,0 +1,39 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": {{ site.name | dump | safe }},
+  "description": {{ site.description | dump | safe }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "telephone": "+44 1795 843116",
+  "image": "{{ site.url }}/images/stuart_david_gilbert.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ site.address.street | dump | safe }},
+    "addressLocality": {{ site.address.locality | dump | safe }},
+    "addressRegion": {{ site.address.region | dump | safe }},
+    "postalCode": {{ site.address.postcode | dump | safe }},
+    "addressCountry": {{ site.address.country | dump | safe }}
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": {{ site.geo.lat }}, "longitude": {{ site.geo.lng }} },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "{{ site.hours.open }}",
+    "closes": "{{ site.hours.close }}"
+  }],
+  "areaServed": ["Sittingbourne", "Maidstone", "Faversham", "Medway", "Kent"]
+}
+</script>
+{%- if page.url != "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": {{ title | dump | safe }}, "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
+{%- endif %}

@@ -2,9 +2,30 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
+<meta name="description" content="{{ metaDescription or site.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ metaDescription or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<link rel="icon" href="/favicon.ico">
+{%- for f in preloadFonts %}
+<link rel="preload" href="{{ f }}" as="font" type="font/woff2" crossorigin>
+{%- endfor %}
+{% set css %}{% include "css/fonts.css" %}{% include "css/site.css" %}{% endset %}
+<style>{{ css | cssmin | safe }}</style>
+{% include "partials/schema.njk" %}
 </head>
 <body>
+{% include "partials/header.njk" %}
 {{ content | safe }}
+{% include "partials/callout.njk" %}
+{% include "partials/footer.njk" %}
+<script>{% include "js/status.js" %}</script>
+{% if turnstile %}<script>{% include "js/turnstile.js" %}</script>{% endif %}
 </body>
 </html>

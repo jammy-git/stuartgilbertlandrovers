@@ -26,7 +26,7 @@ img{max-width:100%;display:block}
 
 /* Header */
 header.site{background:var(--paper);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px;gap:24px}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px;gap:24px;flex-wrap:wrap}
 .logo{display:flex;flex-direction:column;line-height:.95;font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif}
 .logo .row{display:flex;justify-content:space-between;align-items:baseline}
 .logo .row > span{display:inline-block;flex:0 0 auto}
@@ -177,7 +177,8 @@ section{padding:90px 0}
 
 /* Footer */
 footer.site{background:var(--brand-deep);color:var(--hero-mute);padding:60px 0 26px;font-size:14.5px;border-top:1px solid color-mix(in srgb, var(--hero-ink) 10%, transparent)}
-footer.site .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+footer.site .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:40px}
+footer.site ul a:hover{color:var(--accent-soft)}
 footer.site h5{color:var(--hero-ink);font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;letter-spacing:.25em;font-size:12px;margin-bottom:14px;font-weight:400}
 footer.site .brand-mini{font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;font-size:26px;letter-spacing:.06em;color:var(--hero-ink);border-bottom:2px solid var(--accent);display:inline-block;padding-bottom:2px;margin-bottom:12px}
 footer.site p,footer.site li{margin-bottom:6px;color:var(--hero-mute);line-height:1.7}
@@ -194,7 +195,10 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   .hero .wrap, .about .wrap, .area .wrap{grid-template-columns:1fr;gap:40px}
   .svc-grid{grid-template-columns:1fr 1fr}
   footer.site .wrap{grid-template-columns:1fr 1fr}
-  nav.primary{display:none}
+  footer.site .wrap > div:nth-child(1){grid-column:1/-1}
+  /* Multi-page site: nav must stay reachable on phones/tablets. Drop it onto its
+     own centred, wrapping row beneath the logo and phone instead of hiding it. */
+  nav.primary{order:3;flex-basis:100%;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin-top:4px;border-top:1px solid var(--line);padding-top:14px}
   section{padding:70px 0}
   .hero{padding:70px 0 80px}
   /* Map becomes a little shorter so it doesn't dominate when stacked */
@@ -256,6 +260,5 @@ footer.site .legal .credit a:hover{color:var(--accent)}
   .svc-grid{grid-template-columns:1fr}
   /* Footer: brand full width, Workshop + Hours side-by-side, Call us full width */
   footer.site .wrap{grid-template-columns:1fr 1fr;gap:30px 24px}
-  footer.site .wrap > div:nth-child(1),
-  footer.site .wrap > div:nth-child(4){grid-column:1/-1}
+  footer.site .wrap > div:nth-child(1){grid-column:1/-1}
 }

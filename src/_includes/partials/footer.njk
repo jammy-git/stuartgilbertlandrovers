@@ -1,0 +1,34 @@
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="brand-mini">{{ site.name }}</div>
+      <p>{{ site.description }}</p>
+    </div>
+    <div>
+      <h5>Workshop</h5>
+      <p>{{ site.address.street }}<br>{{ site.address.locality }}<br>{{ site.address.region }} {{ site.address.postcode }}</p>
+    </div>
+    <div>
+      <h5>Hours</h5>
+      <p>{{ site.hours.days }}<br>8:30 to 5:30<br>By appointment only</p>
+    </div>
+    <div>
+      <h5>Call us</h5>
+      <a href="tel:{{ site.phoneTel }}" class="phonelink">{{ site.phoneDisplay }}</a>
+      <p style="font-size:12.5px">A telephone call usually gets the fastest reply. You can also <a href="/contact/" style="color:var(--accent-soft);border-bottom:1px solid color-mix(in srgb,var(--accent-soft) 40%,transparent)">message us via the contact form</a>.</p>
+    </div>
+    <div>
+      <h5>Areas we cover</h5>
+      <ul>
+        {%- for loc in locations %}
+        <li><a href="/{{ loc.slug }}/">{{ loc.town }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 {{ site.name }}. All rights reserved.</span>
+      <span>Kent's independent Land Rover specialist. Sittingbourne, Maidstone, Faversham, Medway.</span>
+      <span class="credit">Designed &amp; built by <a href="https://jamesludlow.com" target="_blank" rel="noopener">James Ludlow</a>.</span>
+    </div>
+  </div>
+</footer>
