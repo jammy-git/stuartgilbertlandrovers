@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Land Rover Servicing FAQs | Stuart Gilbert Landrovers, Kent
+metaDescription: Common questions about Land Rover servicing, repairs, costs, models and booking at our independent specialist workshop in Sittingbourne, Kent. Call 01795 843116.
+permalink: /faq/
+preloadFonts:
+  - /fonts/fraunces-latin-var.woff2
+---
+<section class="prose-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">FAQ</div>
+      <h2>Questions we're often asked.</h2>
+      <p>If your question isn't answered here, the quickest thing is to give the workshop a ring on <a href="tel:{{ site.phoneTel }}" style="color:var(--brand);border-bottom:1px solid var(--accent)">{{ site.phoneDisplay }}</a> — you'll speak to Stuart or David.</p>
+    </div>
+    <div class="faq-list">
+      {%- for item in faq | confirmed %}
+      <div class="faq-item">
+        <h3>{{ item.q }}</h3>
+        <p>{{ item.a }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faq | confirmed %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
