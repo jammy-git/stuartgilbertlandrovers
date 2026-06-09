@@ -1,6 +1,7 @@
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="Stuart Gilbert Landrovers">
+    <a class="logo" href="/">
+      <span class="sr-only">Stuart Gilbert Landrovers — home</span>
       <span class="row row1" aria-hidden="true">{% for ch in "STUART GILBERT" | chars %}{% if ch == " " %}<span class="gap"></span>{% else %}<span>{{ ch }}</span>{% endif %}{% endfor %}</span>
       <span class="row row2" aria-hidden="true">{% for ch in "LANDROVERS" | chars %}<span>{{ ch }}</span>{% endfor %}</span>
     </a>
@@ -9,7 +10,7 @@
       <a href="{{ item.url }}"{% if item.url == page.url %} class="on" aria-current="page"{% endif %}>{{ item.label }}</a>
       {%- endfor %}
     </nav>
-    <a class="phone-top" href="tel:{{ site.phoneTel }}" aria-label="Call the workshop on {{ site.phoneDisplay }}">
+    <a class="phone-top" href="tel:{{ site.phoneTel }}">
       <small>Call the workshop</small>
       <span class="number">{{ site.phoneDisplay }}</span>
       <span class="status" id="open-status" aria-live="polite">

@@ -17,7 +17,7 @@ preloadFonts:
   </div>
 </section>
 
-<aside class="seasonal" aria-label="Workshop note">
+<aside class="seasonal" aria-label="Workshop note" data-season="{{ seasonal.season }}">
   <div class="wrap">
     <span class="icon winter" aria-hidden="true">
       <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -45,7 +45,7 @@ preloadFonts:
         <path d="M6 26 L 19 13"/>
       </svg>
     </span>
-    <p id="seasonal-note"></p>
+    <p id="seasonal-note">{{ seasonal.note }}</p>
   </div>
 </aside>
 
