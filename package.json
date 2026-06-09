@@ -5,7 +5,7 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "test": "node --test functions/lib/",
+    "test": "node --test \"functions/**/*.test.js\"",
     "check:links": "linkinator _site --recurse --silent",
     "check:html": "html-validate \"_site/**/*.html\""
   },
