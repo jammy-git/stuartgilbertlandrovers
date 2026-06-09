@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Land Rover Servicing & Repairs in Kent | Stuart Gilbert Landrovers
+metaDescription: Land Rover servicing, repairs, brakes, suspension, welding and improvements at an independent specialist in Sittingbourne, Kent. Servicing from £290 + VAT. Call 01795 843116.
+permalink: /services/
+preloadFonts:
+  - /fonts/fraunces-latin-var.woff2
+---
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">What we do</div>
+      <h2>Everything a Land Rover needs, under one roof.</h2>
+      <p>No frills, no upsell. Straightforward workshop care by two technicians who have spent their working lives on these vehicles. Please telephone the workshop for an appointment first.</p>
+      {%- if services.labourRate.confirmed %}
+      <p style="margin-top:14px"><strong>{{ services.labourRate.text }}</strong></p>
+      {%- endif %}
+    </div>
+
+    <div class="svc-list">
+      {%- for item in services.items | confirmed %}
+      <article class="svc-row">
+        <div class="num">{{ item.num }}</div>
+        <div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.long }}</p>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="marques">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Models</div>
+      <h2>Every Land Rover, from Series I to the latest Defender.</h2>
+    </div>
+    {% include "partials/lineup.njk" %}
+  </div>
+</section>

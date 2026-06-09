@@ -104,6 +104,13 @@ section{padding:90px 0}
 .svc.cta p{color:var(--hero-mute)}
 .svc.cta .num{color:var(--accent-soft)}
 .svc-call{margin-top:14px;font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;font-size:28px;letter-spacing:.04em;color:var(--hero-ink);border-bottom:2px solid var(--accent);padding-bottom:3px;align-self:flex-start}
+/* Services page: editorial numbered list */
+.svc-list{border-top:1px solid var(--line)}
+.svc-row{display:grid;grid-template-columns:auto 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.svc-row .num{font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;font-size:15px;letter-spacing:.28em;color:var(--accent)}
+.svc-row h3{font-size:24px;font-weight:500;margin-bottom:8px}
+.svc-row p{color:var(--ink-soft);font-size:16.5px;line-height:1.6;max-width:60ch}
+@media (max-width:560px){.svc-row{grid-template-columns:1fr;gap:6px;padding:26px 0}}
 
 /* Marques */
 .marques{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
