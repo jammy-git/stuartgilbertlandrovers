@@ -1,0 +1,79 @@
+---
+layout: base.njk
+title: Contact Stuart Gilbert Landrovers | Land Rover Specialist, Sittingbourne
+metaDescription: Contact our independent Land Rover workshop in Sittingbourne, Kent. Call 01795 843116 to book, or send a message. Orchards, Sittingbourne, ME9 8JX.
+permalink: /contact/
+turnstile: true
+preloadFonts:
+  - /fonts/fraunces-latin-var.woff2
+---
+<section class="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Contact</div>
+      <h2>Get in touch with the workshop.</h2>
+      <p>A telephone call is by far the quickest way to reach us — you'll speak to Stuart or David, and we can book your Land Rover straight in. If you'd rather drop us a message, use the form below and we'll get back to you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-primary">
+        <a class="contact-phone" href="tel:{{ site.phoneTel }}">
+          <small>Call the workshop</small>
+          <span class="number">{{ site.phoneDisplay }}</span>
+        </a>
+        <div class="contact-hours">
+          <h3>Opening hours</h3>
+          <p>{{ site.hours.days }}<br>8:30 to 5:30<br>By appointment only</p>
+        </div>
+        <div class="contact-addr">
+          <h3>Workshop</h3>
+          <address>{{ site.address.street }}<br>{{ site.address.locality }}<br>{{ site.address.region }} {{ site.address.postcode }}</address>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form class="contact-form" method="POST" action="/api/contact">
+          <p class="form-row">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </p>
+          <p class="form-row">
+            <label for="contact">Phone number or email</label>
+            <input type="text" id="contact" name="contact" autocomplete="tel" required>
+          </p>
+          <p class="form-row">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </p>
+          <p class="hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </p>
+          <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER"></div>
+          <p id="ts-status" role="status" class="ts-status"></p>
+          <button type="submit" class="btn-submit">Send message</button>
+          <p class="form-note">Prefer to talk? Call <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a> — it's the fastest way to reach us.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area area-contact">
+  <div class="contours" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <div class="tag">Find us</div>
+        <h2>Orchards, Sittingbourne.</h2>
+        <p style="color:var(--hero-mute)">We're a short drive from most of mid Kent. The workshop is by appointment only — please call before setting off.</p>
+      </div>
+      <address>
+        <b>{{ site.name }}</b>
+        {{ site.address.street }}, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postcode }}<br>
+        {{ site.hours.display }}
+      </address>
+    </div>
+    {% include "partials/map.njk" %}
+  </div>
+</section>
