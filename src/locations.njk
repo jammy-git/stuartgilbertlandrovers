@@ -1,0 +1,70 @@
+---
+pagination:
+  data: locations
+  size: 1
+  alias: loc
+permalink: "/{{ loc.slug }}/"
+layout: base.njk
+eleventyComputed:
+  title: "{{ loc.title }}"
+  metaDescription: "{{ loc.metaDescription }}"
+preloadFonts:
+  - /fonts/fraunces-latin-var.woff2
+---
+<section class="hero hero-local">
+  <div class="wrap">
+    <div class="eyebrow">Land Rover specialist near {{ loc.town }}</div>
+    <h1>Your local Land Rover specialist for <em>{{ loc.town }}</em>.</h1>
+    <p class="lede">{{ loc.driveTime }} — {{ loc.route }}. A small, father and son workshop at Orchards, Sittingbourne.</p>
+  </div>
+</section>
+
+<section class="prose-section">
+  <div class="wrap prose">
+    <p>{{ loc.intro }}</p>
+
+    <h2>What {{ loc.town }} owners come to us for</h2>
+    <ul class="emphasis-list">
+      {%- for e in loc.emphasis %}
+      <li>{{ e }}</li>
+      {%- endfor %}
+    </ul>
+    <p>That's not all we do — see the <a href="/services/">full list of services</a>, from servicing and welding to brakes, suspension and improvements. Whatever your Land Rover needs, give us a ring first and we'll book it in.</p>
+
+    <h2>Getting to the workshop from {{ loc.town }}</h2>
+    <p>{{ loc.driveTime | capitalize }}: {{ loc.route }}. We're at Orchards, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postcode }}. The workshop is by appointment only, so please call <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a> before setting off — you'll speak to Stuart or David.</p>
+  </div>
+</section>
+
+<section class="area">
+  <div class="contours" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <div class="tag">Find us</div>
+        <h2>Orchards, Sittingbourne.</h2>
+        <p style="color:var(--hero-mute)">A short drive from {{ loc.town }} and the wider area.</p>
+      </div>
+      <address>
+        <b>{{ site.name }}</b>
+        {{ site.address.street }}, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postcode }}<br>
+        {{ site.hours.display }}
+      </address>
+    </div>
+    {% include "partials/map.njk" %}
+  </div>
+</section>
+
+<section class="prose-section">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:24px">
+      <div class="tag">Also nearby</div>
+      <h2>Other areas we cover</h2>
+    </div>
+    <ul class="area-links">
+      {%- for other in locations %}{% if other.slug != loc.slug %}
+      <li><a href="/{{ other.slug }}/">Land Rover specialist near {{ other.town }}</a></li>
+      {%- endif %}{% endfor %}
+    </ul>
+  </div>
+</section>

@@ -123,6 +123,14 @@ section{padding:90px 0}
 .prose blockquote.pull p{font-family:'Fraunces','Fraunces Fallback',serif;font-style:italic;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--ink);margin-bottom:10px}
 .prose blockquote.pull cite{font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;letter-spacing:.28em;font-size:12px;color:var(--accent);font-style:normal;text-transform:uppercase}
 
+/* Location pages */
+.hero-local{padding:80px 0 84px}
+.emphasis-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px;margin:6px 0 22px}
+.emphasis-list li{font-family:'Fraunces','Fraunces Fallback',serif;font-size:16px;color:var(--brand);background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:7px 16px}
+.area-links{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.area-links a{display:block;padding:16px 18px;background:var(--paper);border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:'Fraunces','Fraunces Fallback',serif;transition:.2s}
+.area-links a:hover{border-color:var(--accent);color:var(--brand)}
+
 /* FAQ list */
 .faq-list{max-width:760px;border-top:1px solid var(--line)}
 .faq-item{padding:26px 0;border-bottom:1px solid var(--line)}
