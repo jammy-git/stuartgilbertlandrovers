@@ -6,6 +6,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
   eleventyConfig.addFilter("chars", (s) => Array.from(String(s)));
   eleventyConfig.addFilter("confirmed", (arr) => (arr || []).filter((x) => x.confirmed));
+  eleventyConfig.addFilter("ucfirst", (s) => { s = String(s); return s.charAt(0).toUpperCase() + s.slice(1); });
   eleventyConfig.addTransform("htmlmin", async function (content) {
     if ((this.page.outputPath || "").endsWith(".html")) {
       return minify(content, { collapseWhitespace: true, removeComments: true, minifyJS: true });

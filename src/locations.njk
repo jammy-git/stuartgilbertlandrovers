@@ -16,7 +16,7 @@ preloadFonts:
   <div class="wrap">
     <div class="eyebrow">Land Rover specialist near {{ loc.town }}</div>
     <h1>Your local Land Rover specialist for <em>{{ loc.town }}</em>.</h1>
-    <p class="lede">{{ loc.driveTime }} — {{ loc.route }}. A small, father and son workshop at Orchards, Sittingbourne.</p>
+    <p class="lede">{{ loc.driveTime }}, {{ loc.route }}. A small independent Land Rover workshop, run by Stuart and David.</p>
   </div>
 </section>
 
@@ -30,10 +30,10 @@ preloadFonts:
       <li>{{ e }}</li>
       {%- endfor %}
     </ul>
-    <p>That's not all we do — see the <a href="/services/">full list of services</a>, from servicing and welding to brakes, suspension and improvements. Whatever your Land Rover needs, give us a ring first and we'll book it in.</p>
+    <p>That's not all we do. See the <a href="/services/">full list of services</a>, from servicing and welding to brakes, suspension and improvements. Whatever your Land Rover needs, give us a ring first and we'll book it in.</p>
 
     <h2>Getting to the workshop from {{ loc.town }}</h2>
-    <p>{{ loc.driveTime | capitalize }}: {{ loc.route }}. We're at Orchards, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postcode }}. The workshop is by appointment only, so please call <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a> before setting off — you'll speak to Stuart or David.</p>
+    <p>We're at Orchards, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postcode }}. {{ loc.route | ucfirst }}. The workshop is by appointment only, so please call <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a> before you set off.</p>
   </div>
 </section>
 
