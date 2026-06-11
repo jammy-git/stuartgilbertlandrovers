@@ -6,7 +6,7 @@
 <title>{{ title }}</title>
 <meta name="description" content="{{ metaDescription or site.description }}">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if noindex or basePath %}<meta name="robots" content="noindex">{% endif %}
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ metaDescription or site.description }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">

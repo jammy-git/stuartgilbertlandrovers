@@ -32,6 +32,7 @@ preloadFonts:
       </div>
 
       <div class="contact-form-wrap">
+        {% if basePath %}<p class="preview-note">This is a preview of the new site. The message form isn't connected yet, so please call <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a> for now.</p>{% endif %}
         <form class="contact-form" method="POST" action="/api/contact">
           <p class="form-row">
             <label for="name">Your name</label>
