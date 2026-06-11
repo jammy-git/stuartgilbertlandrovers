@@ -1,5 +1,6 @@
 export default {
-  // PENDING CLIENT: £59/hr is the 2015-era rate from the old site. Confirm before publishing.
+  // Stuart declined to publish an hourly rate (11 Jun 2026). Kept confirmed:false so
+  // the services page never renders it.
   labourRate: { text: "Labour is charged at £59 per hour + VAT", confirmed: false },
   items: [
     { num: "No. 01", title: "Servicing", text: "Land Rover servicing. Parts and labour from around £290 + VAT. Stamp in the book.",
@@ -11,11 +12,7 @@ export default {
     { num: "No. 04", title: "Welding", text: "Welding. Chassis, as needed.",
       long: "Chassis welding as needed. We assess it honestly before any cutting starts, so you know whether it's a patch or a bigger job before we begin — no surprises halfway through.", confirmed: true },
     { num: "No. 05", title: "Land Rover improvements", text: "Improvements and modifications to most models. Happy to talk it through if you give us a call.",
-      long: "Improvements and modifications to most models. Whatever you've got in mind, give us a ring and we'll talk it through — what works, what's worth doing, and what it involves.", confirmed: true },
-    // PENDING CLIENT: tuning services are on the old site but absent from the approved design. Hidden until confirmed.
-    { num: "No. 06", title: "Diesel tuning", text: "Diesel tuning for performance and economy.",
-      long: "Diesel tuning for performance and economy, set up to suit how you drive.", confirmed: false },
-    { num: "No. 07", title: "Rover V8 tuning", text: "Rover V8 performance tuning.",
-      long: "Rover V8 performance tuning for owners chasing a bit more from the engine.", confirmed: false }
+      long: "Improvements and modifications to most models. Whatever you've got in mind, give us a ring and we'll talk it through — what works, what's worth doing, and what it involves.", confirmed: true }
+    // Diesel/V8 tuning: Stuart confirmed (11 Jun 2026) these are no longer offered — removed.
   ]
 };
