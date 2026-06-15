@@ -29,12 +29,19 @@ img{max-width:100%;display:block}
 /* Header */
 header.site{background:var(--paper);border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px;gap:24px;flex-wrap:wrap}
-.logo{display:flex;flex-direction:column;line-height:.95;font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif}
-.logo .row{display:flex;justify-content:space-between;align-items:baseline}
-.logo .row > span{display:inline-block;flex:0 0 auto}
-.logo .row > .gap{flex-basis:.35em}
-.logo .row1{font-size:30px;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
-.logo .row2{font-size:21px;color:var(--brand);margin-top:5px}
+/* row1 sets the width at natural letter spacing (reliable intrinsic size in all
+   browsers); row2 stretches to that width and space-between spreads it to match.
+   Keeping space-between off row1 avoids a Firefox intrinsic-width bug that shrank
+   the container and overflowed the last letter. */
+/* row1 is a plain inline-block whose natural text width sets the logo width
+   (unambiguous in every browser). row2 is a flex row that fills that width and
+   space-between spreads its letters to match. Avoids a Firefox flex
+   intrinsic-width bug that mis-sized a nested space-between container. */
+.logo{display:inline-block;line-height:.95;font-family:'Bebas Neue','Bebas Neue Fallback',sans-serif;flex-shrink:0}
+.logo .row1{display:block;white-space:nowrap;font-size:30px;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
+.logo .row2{display:flex;justify-content:space-between;align-items:baseline;font-size:21px;color:var(--brand);margin-top:5px}
+.logo .row > span{display:inline-block}
+.logo .gap{display:inline-block;width:.35em}
 nav.primary{display:flex;gap:26px;font-size:15px}
 nav.primary a{color:var(--ink-soft);padding:4px 0;transition:.2s}
 nav.primary a:hover,nav.primary a.on{color:var(--ink)}
@@ -274,7 +281,7 @@ footer.site .legal .credit a:hover{color:var(--accent)}
 @media (max-width: 640px){
   /* Compact horizontal: smaller logo on left, phone as a bordered card on the right */
   header.site .wrap{padding-top:16px;padding-bottom:16px;gap:14px;align-items:center}
-  .logo{flex:0 1 auto}
+  .logo{flex:0 0 auto}
   .logo .row1{font-size:22px;padding-bottom:2px}
   .logo .row2{font-size:14px;margin-top:3px}
   .phone-top{
@@ -300,8 +307,9 @@ footer.site .legal .credit a:hover{color:var(--accent)}
     padding-top:16px;
     padding-bottom:16px;
   }
-  .logo{width:100%;align-items:stretch}
-  .logo .row1{font-size:clamp(28px,9vw,44px);padding-bottom:3px}
+  /* Full-width wordmark: row1 becomes a flex row so both lines spread to 100% */
+  .logo{width:100%}
+  .logo .row1{display:flex;justify-content:space-between;font-size:clamp(28px,9vw,44px);padding-bottom:3px}
   .logo .row2{font-size:clamp(20px,6.5vw,32px);margin-top:5px}
   .phone-top{
     display:block;
