@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.stuartgilbertlandrovers.co.uk/sitemap.xml
+Sitemap: https://stuartgilbertlandrovers.co.uk/sitemap.xml

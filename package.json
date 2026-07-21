@@ -6,7 +6,7 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "test": "node --test \"functions/**/*.test.js\"",
-    "check:links": "linkinator _site --recurse --silent --skip \"https://www.stuartgilbertlandrovers.co.uk\" --skip \"https://www.google.com\" --skip \"https://challenges.cloudflare.com\" --skip \"https://jamesludlow.com\"",
+    "check:links": "linkinator _site --recurse --silent --skip \"https://stuartgilbertlandrovers.co.uk\" --skip \"https://www.google.com\" --skip \"https://challenges.cloudflare.com\" --skip \"https://jamesludlow.com\"",
     "check:html": "html-validate \"_site/**/*.html\""
   },
   "devDependencies": {

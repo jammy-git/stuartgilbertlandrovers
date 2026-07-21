@@ -22,12 +22,12 @@
 
 ## Pages
 
-- Home: https://www.stuartgilbertlandrovers.co.uk/
-- About: https://www.stuartgilbertlandrovers.co.uk/about/
-- Services: https://www.stuartgilbertlandrovers.co.uk/services/
-- FAQ: https://www.stuartgilbertlandrovers.co.uk/faq/
-- Contact: https://www.stuartgilbertlandrovers.co.uk/contact/
-- Land Rover specialist in Sittingbourne: https://www.stuartgilbertlandrovers.co.uk/land-rover-specialist-sittingbourne/
-- Land Rover specialist near Maidstone: https://www.stuartgilbertlandrovers.co.uk/land-rover-specialist-maidstone/
-- Land Rover specialist near Faversham: https://www.stuartgilbertlandrovers.co.uk/land-rover-specialist-faversham/
-- Land Rover specialist near Medway: https://www.stuartgilbertlandrovers.co.uk/land-rover-specialist-medway/
+- Home: https://stuartgilbertlandrovers.co.uk/
+- About: https://stuartgilbertlandrovers.co.uk/about/
+- Services: https://stuartgilbertlandrovers.co.uk/services/
+- FAQ: https://stuartgilbertlandrovers.co.uk/faq/
+- Contact: https://stuartgilbertlandrovers.co.uk/contact/
+- Land Rover specialist in Sittingbourne: https://stuartgilbertlandrovers.co.uk/land-rover-specialist-sittingbourne/
+- Land Rover specialist near Maidstone: https://stuartgilbertlandrovers.co.uk/land-rover-specialist-maidstone/
+- Land Rover specialist near Faversham: https://stuartgilbertlandrovers.co.uk/land-rover-specialist-faversham/
+- Land Rover specialist near Medway: https://stuartgilbertlandrovers.co.uk/land-rover-specialist-medway/

@@ -1,6 +1,6 @@
 export default {
   name: "Stuart Gilbert Landrovers",
-  url: "https://www.stuartgilbertlandrovers.co.uk",
+  url: "https://stuartgilbertlandrovers.co.uk",
   phoneDisplay: "01795 843116",
   phoneTel: "+441795843116",
   address: { street: "Orchards", locality: "Sittingbourne", region: "Kent", postcode: "ME9 8JX", country: "GB" },
