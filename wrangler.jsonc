@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "stuartgilbertlandrovers",
+  "pages_build_output_dir": "_site",
+  "compatibility_date": "2026-07-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Private binding to the dedicated mailer Worker (holds the send_email binding).
+  "services": [{ "binding": "MAILER", "service": "sglr-mailer" }]
+}

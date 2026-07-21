@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sglr-mailer",
+  "main": "index.js",
+  "compatibility_date": "2026-07-01",
+  // Not publicly reachable: only the Pages Function calls it via the service binding.
+  "workers_dev": false,
+  // send_email binding with no destination_address => may send to any address that
+  // is a verified Email Routing destination on the zone (Stuart's is set up in the
+  // dashboard). The recipient is passed at send time by the caller, so Stuart's
+  // address never lives in this (public) repo.
+  "send_email": [{ "name": "SEB" }]
+}

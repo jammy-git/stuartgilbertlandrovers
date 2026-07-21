@@ -1,4 +1,3 @@
-import { EmailMessage } from "cloudflare:email";
 import { createMimeMessage } from "mimetext";
 import { validateSubmission } from "../lib/validate.js";
 
@@ -54,8 +53,17 @@ export async function onRequestPost(context) {
     data: `Name: ${v.data.name}\nContact: ${v.data.contact}\n\n${v.data.message}\n`
   });
 
-  const email = new EmailMessage(SENDER, env.CONTACT_DEST, msg.asRaw());
-  await env.CONTACT_EMAIL.send(email);
+  // Pages Functions can't use the cloudflare:email send_email binding, so hand the
+  // raw message to the dedicated mailer Worker (which holds the binding) over a
+  // private service binding. A failed send must be visible, not silently swallowed.
+  const sent = await env.MAILER.fetch("https://mailer.internal/send", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ from: SENDER, to: env.CONTACT_DEST, raw: msg.asRaw() })
+  });
+  if (!sent.ok) {
+    return errorPage("We couldn't send your message just now. Please give us a ring and we'll get it sorted.");
+  }
 
   return Response.redirect(new URL("/contact/sent/", request.url), 303);
 }
