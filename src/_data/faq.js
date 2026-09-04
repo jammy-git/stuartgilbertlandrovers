@@ -3,7 +3,7 @@
 export default [
   { q: "How much does a Land Rover service cost?", a: "A service including parts and labour starts from around £290 + VAT, and you get a stamp in the book.", confirmed: true },
   { q: "Do I need to book?", a: "Yes, the workshop runs by appointment only. Please telephone 01795 843116 first, and you'll speak to Stuart or David.", confirmed: true },
-  { q: "What are your opening hours?", a: "Mon to Fri, 8:15 to 5:15, by appointment only.", confirmed: true },
+  { q: "What are your opening hours?", a: "Mon to Fri, 8:15 to 5:00, by appointment only.", confirmed: true },
   { q: "Where are you based?", a: "Orchards, Sittingbourne, Kent ME9 8JX. A short drive from most of mid Kent.", confirmed: true },
   { q: "Which Land Rover models do you work on?", a: "All of them: Defender 90, 110 and 130 and the new L663, Range Rover Classic through L460, Discovery 1 to 5 and Sport, Velar, Evoque, Series I to III, and Freelander 1 and 2.", confirmed: true },
   { q: "Are you a main dealer?", a: "No, we're an independent specialist. Father and son, with over 75 years of Land Rover experience between us.", confirmed: true },

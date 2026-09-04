@@ -24,7 +24,7 @@ const seasonalEl = document.querySelector('.seasonal');
 if (seasonalEl) seasonalEl.setAttribute('data-season', season);
 
 // Open / closed indicator.
-// Workshop hours: Mon to Fri, 08:15 to 17:15. Closed weekends and UK bank holidays.
+// Workshop hours: Mon to Fri, 08:15 to 17:00. Closed weekends and UK bank holidays.
 const BANK_HOLIDAYS = {
   // England & Wales bank holidays, 2026 to 2035.
   // Computed Apr 2026. Refresh this table before 2036.
@@ -127,7 +127,7 @@ function openStatus(now){
   const mins = now.getHours() * 60 + now.getMinutes();
   const isHoliday = BANK_HOLIDAYS[ymd(now)];
   const isWeekend = dow === 0 || dow === 6;
-  const open = !isWeekend && !isHoliday && mins >= 8*60 + 15 && mins < 17*60 + 15;
+  const open = !isWeekend && !isHoliday && mins >= 8*60 + 15 && mins < 17*60;
   if (open) return { open: true, text: 'Open, please call to book' };
   if (isHoliday){
     const nxt = nextWorkingDay(now);
